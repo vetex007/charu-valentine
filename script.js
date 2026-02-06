@@ -28,3 +28,33 @@ function showPhotos(btn) {
   btn.style.display = "none";
   document.getElementById("photos").style.display = "block";
 }
+// Cursor Heart Trail
+document.addEventListener("mousemove", (e) => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = e.clientX + "px";
+  heart.style.top = e.clientY + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 1000);
+});
+function playMusic() {
+  document.getElementById("bgMusic").play();
+}
+
+
+const valentinesDate = new Date("Feb 14, 2026 00:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = valentinesDate - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const mins = Math.floor((diff / (1000 * 60)) % 60);
+
+  document.getElementById("countdown").innerHTML =
+    `⏳ ${days} days ${hours} hrs ${mins} mins left for Valentine’s Day ❤️`;
+}, 1000);
+
