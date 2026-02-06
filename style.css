@@ -6,11 +6,17 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  text-align: center;
   background: radial-gradient(circle, #ff9a9e, #fad0c4);
   color: white;
-  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
 }
+
 
 /* ---------- Floating Roses ---------- */
 .rose-float {
@@ -48,15 +54,15 @@ body {
 
 /* ---------- Card ---------- */
 .card {
-  background: rgba(255,255,255,0.15);
-  padding: 25px;
-  margin: 40px auto;
+  background: rgba(255,255,255,0.18);
+  padding: 24px;
   width: 90%;
-  max-width: 420px;
-  border-radius: 25px;
+  max-width: 360px;
+  border-radius: 22px;
   backdrop-filter: blur(10px);
-  animation: fadeIn 2s ease;
+  animation: fadeIn 1.5s ease;
 }
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
@@ -125,4 +131,28 @@ button {
 @keyframes photoPop {
   from { transform: scale(0); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
+}
+#countdown {
+  position: fixed;
+  bottom: 15px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px 18px;
+  }
+
+  .message {
+    font-size: 17px;
+  }
 }
