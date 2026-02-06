@@ -109,6 +109,18 @@ button {
   border-radius: 12px;
   animation: photoPop 1s ease;
 }
+.heart {
+  position: fixed;
+  font-size: 16px;
+  pointer-events: none;
+  animation: heartFade 1s ease-out forwards;
+}
+
+@keyframes heartFade {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(2); }
+}
+
 
 @keyframes photoPop {
   from { transform: scale(0); opacity: 0; }
