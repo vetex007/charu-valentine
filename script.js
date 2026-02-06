@@ -58,3 +58,13 @@ setInterval(() => {
     `⏳ ${days} days ${hours} hrs ${mins} mins left for Valentine’s Day ❤️`;
 }, 1000);
 
+function showRose(btn) {
+  btn.style.display = "none";
+
+  document.getElementById("roseSection").style.display = "block";
+
+  // Start music after user interaction (browser-safe)
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.6;
+  music.play();
+}
