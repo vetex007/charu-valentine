@@ -55,13 +55,14 @@ body {
 /* ---------- Card ---------- */
 .card {
   background: rgba(255,255,255,0.18);
-  padding: 24px;
-  width: 90%;
-  max-width: 360px;
-  border-radius: 22px;
-  backdrop-filter: blur(10px);
+  padding: 26px 22px;
+  width: 92%;
+  max-width: 380px;
+  border-radius: 26px;
+  backdrop-filter: blur(12px);
   animation: fadeIn 1.5s ease;
 }
+
 
 
 @keyframes fadeIn {
@@ -92,10 +93,14 @@ button {
 
 /* ---------- Rose ---------- */
 .rose {
-  width: 160px;
-  margin-top: 20px;
+  width: 70vw;           /* BIG on mobile */
+  max-width: 280px;      /* Safe limit */
+  margin: 20px auto;
+  display: block;
+  border-radius: 18px;
   animation: popGlow 1.5s ease;
 }
+
 
 @keyframes popGlow {
   0% { transform: scale(0); filter: brightness(1); }
@@ -104,17 +109,33 @@ button {
 }
 
 .message {
-  font-size: 20px;
-  margin: 18px;
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 16px 10px;
 }
+
 
 /* ---------- Photos ---------- */
 .photos img {
-  width: 90px;
-  margin: 8px;
-  border-radius: 12px;
-  animation: photoPop 1s ease;
+  width: 100%;
+  border-radius: 16px;
+  animation: photoPop 0.8s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
+
+/* Hover effect (desktop) */
+.photos img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 25px rgba(255, 0, 80, 0.35);
+}
+
+/* Tap / active effect (mobile) */
+.photos img:active {
+  transform: scale(1.12);
+  box-shadow: 0 14px 30px rgba(255, 0, 90, 0.45);
+}
+
+
 .heart {
   position: fixed;
   font-size: 16px;
