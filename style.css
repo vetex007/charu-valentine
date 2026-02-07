@@ -68,8 +68,8 @@ body {
 .card {
   background: rgba(255,255,255,0.18);
   padding: 26px 22px;
-  width: 92%;
-  max-width: 380px;
+  width: 98%;
+  max-width: 480px;
   border-radius: 26px;
   backdrop-filter: blur(12px);
   animation: fadeIn 1.5s ease;
