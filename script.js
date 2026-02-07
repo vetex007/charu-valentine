@@ -1,6 +1,19 @@
-// Floating Roses
+/* =====================================================
+   FORCE HIDE PHOTOS ON PAGE LOAD (CRITICAL)
+===================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const photos = document.getElementById("photos");
+  if (photos) {
+    photos.style.display = "none";
+    photos.classList.add("hidden");
+  }
+});
+
+/* =====================================================
+   FLOATING ROSES
+===================================================== */
 for (let i = 0; i < 20; i++) {
-  let rose = document.createElement("div");
+  const rose = document.createElement("div");
   rose.className = "rose-float";
   rose.innerHTML = "🌹";
   rose.style.left = Math.random() * 100 + "vw";
@@ -8,9 +21,11 @@ for (let i = 0; i < 20; i++) {
   document.body.appendChild(rose);
 }
 
-// Sparkles
+/* =====================================================
+   SPARKLES
+===================================================== */
 for (let i = 0; i < 30; i++) {
-  let sparkle = document.createElement("div");
+  const sparkle = document.createElement("div");
   sparkle.className = "sparkle";
   sparkle.style.left = Math.random() * 100 + "vw";
   sparkle.style.top = Math.random() * 100 + "vh";
@@ -18,17 +33,58 @@ for (let i = 0; i < 30; i++) {
   document.body.appendChild(sparkle);
 }
 
-// Click Actions
+/* =====================================================
+   FIRST CLICK → SHOW ROSE + PLAY MUSIC
+===================================================== */
 function showRose(btn) {
   btn.style.display = "none";
-  document.getElementById("roseSection").style.display = "block";
+
+  const roseSection = document.getElementById("roseSection");
+  if (roseSection) {
+    roseSection.style.display = "block";
+  }
+
+  const music = document.getElementById("bgMusic");
+  if (music) {
+    music.volume = 0.6;
+    music.play();
+  }
 }
 
+/* =====================================================
+   SECOND CLICK → SHOW PHOTOS
+===================================================== */
 function showPhotos(btn) {
   btn.style.display = "none";
-  document.getElementById("photos").style.display = "block";
+
+  const photos = document.getElementById("photos");
+  if (photos) {
+    photos.classList.remove("hidden");
+    photos.style.display = "flex";
+  }
+
+  heartBurst();
 }
-// Cursor Heart Trail
+
+/* =====================================================
+   HEART BURST
+===================================================== */
+function heartBurst() {
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = 50 + (Math.random() * 20 - 10) + "vw";
+    heart.style.top = "60vh";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1000);
+  }
+}
+
+/* =====================================================
+   CURSOR HEART TRAIL
+===================================================== */
 document.addEventListener("mousemove", (e) => {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -39,11 +95,10 @@ document.addEventListener("mousemove", (e) => {
 
   setTimeout(() => heart.remove(), 1000);
 });
-function playMusic() {
-  document.getElementById("bgMusic").play();
-}
 
-
+/* =====================================================
+   COUNTDOWN
+===================================================== */
 const valentinesDate = new Date("Feb 14, 2026 00:00:00").getTime();
 
 setInterval(() => {
@@ -54,17 +109,9 @@ setInterval(() => {
   const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
   const mins = Math.floor((diff / (1000 * 60)) % 60);
 
-  document.getElementById("countdown").innerHTML =
-    `⏳ ${days} days ${hours} hrs ${mins} mins left for Valentine’s Day ❤️`;
+  const countdown = document.getElementById("countdown");
+  if (countdown) {
+    countdown.innerHTML =
+      `⏳ ${days} days ${hours} hrs ${mins} mins left for Valentine’s Day ❤️`;
+  }
 }, 1000);
-
-function showRose(btn) {
-  btn.style.display = "none";
-
-  document.getElementById("roseSection").style.display = "block";
-
-  // Start music after user interaction (browser-safe)
-  const music = document.getElementById("bgMusic");
-  music.volume = 0.6;
-  music.play();
-}
