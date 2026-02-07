@@ -236,3 +236,22 @@ button {
     font-size: 17px;
   }
 }
+
+@media (max-width: 480px) {
+
+  .rose {
+    width: 82vw;        /* was 75vw */
+    max-width: 320px;   /* slightly bigger */
+  }
+}
+@media (max-width: 480px) {
+
+  .photos-row img {
+    width: 30%;
+  }
+
+  .photos-row img:nth-child(2) {
+    width: 38%;
+  }
+}
+
