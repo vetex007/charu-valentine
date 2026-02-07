@@ -1,12 +1,12 @@
 /* =====================================================
-   FORCE HIDE PHOTOS ON PAGE LOAD (CRITICAL)
+   FORCE INITIAL STATE (VERY IMPORTANT)
 ===================================================== */
 document.addEventListener("DOMContentLoaded", () => {
+  const roseSection = document.getElementById("roseSection");
   const photos = document.getElementById("photos");
-  if (photos) {
-    photos.style.display = "none";
-    photos.classList.add("hidden");
-  }
+
+  if (roseSection) roseSection.classList.add("hidden");
+  if (photos) photos.classList.add("hidden");
 });
 
 /* =====================================================
@@ -34,15 +34,13 @@ for (let i = 0; i < 30; i++) {
 }
 
 /* =====================================================
-   FIRST CLICK → SHOW ROSE + PLAY MUSIC
+   FIRST CLICK → SHOW ROSE + MUSIC
 ===================================================== */
 function showRose(btn) {
   btn.style.display = "none";
 
   const roseSection = document.getElementById("roseSection");
-  if (roseSection) {
-    roseSection.style.display = "block";
-  }
+  roseSection.classList.remove("hidden");
 
   const music = document.getElementById("bgMusic");
   if (music) {
@@ -58,10 +56,8 @@ function showPhotos(btn) {
   btn.style.display = "none";
 
   const photos = document.getElementById("photos");
-  if (photos) {
-    photos.classList.remove("hidden");
-    photos.style.display = "flex";
-  }
+  photos.classList.remove("hidden");
+  photos.style.display = "flex";
 
   heartBurst();
 }
@@ -115,3 +111,4 @@ setInterval(() => {
       `⏳ ${days} days ${hours} hrs ${mins} mins left for Valentine’s Day ❤️`;
   }
 }, 1000);
+
