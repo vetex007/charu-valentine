@@ -93,11 +93,11 @@ button {
 
 /* ---------- Rose ---------- */
 .rose {
-  width: 70vw;           /* BIG on mobile */
-  max-width: 280px;      /* Safe limit */
-  margin: 20px auto;
+  width: 75vw;
+  max-width: 300px;
+  margin: 18px auto;
   display: block;
-  border-radius: 18px;
+  border-radius: 20px;
   animation: popGlow 1.5s ease;
 }
 
@@ -133,6 +133,35 @@ button {
 .photos img:active {
   transform: scale(1.12);
   box-shadow: 0 14px 30px rgba(255, 0, 90, 0.45);
+}
+
+/* Row layout for photos */
+.photos-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* Smaller photos */
+.photos-row img {
+  width: 30%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 14px;
+  animation: photoPop 0.8s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover / Tap effect */
+.photos-row img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 22px rgba(255, 0, 80, 0.35);
+}
+
+.photos-row img:active {
+  transform: scale(1.12);
+  box-shadow: 0 12px 28px rgba(255, 0, 90, 0.45);
 }
 
 
