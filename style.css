@@ -1,106 +1,238 @@
-/* ---------- FLOATING ROSES ---------- */
-for (let i = 0; i < 20; i++) {
-  const rose = document.createElement("div");
-  rose.className = "rose-float";
-  rose.innerHTML = "🌹";
-  rose.style.left = Math.random() * 100 + "vw";
-  rose.style.animationDuration = 10 + Math.random() * 10 + "s";
-  document.body.appendChild(rose);
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* ---------- SPARKLES ---------- */
-for (let i = 0; i < 30; i++) {
-  const sparkle = document.createElement("div");
-  sparkle.className = "sparkle";
-  sparkle.style.left = Math.random() * 100 + "vw";
-  sparkle.style.top = Math.random() * 100 + "vh";
-  sparkle.style.animationDelay = Math.random() * 3 + "s";
-  document.body.appendChild(sparkle);
+/* ================= BODY ================= */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle, #ff9a9e, #fad0c4);
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
 }
 
-/* ---------- SHOW ROSE (FIRST CLICK) ---------- */
-function showRose(btn) {
-  // hide first button
-  btn.style.display = "none";
+/* ================= UTIL ================= */
+.hidden {
+  display: none !important;
+}
 
-  // show rose section
-  document.getElementById("roseSection").style.display = "block";
+/* ================= FLOATING ROSES ================= */
+.rose-float {
+  position: fixed;
+  top: -50px;
+  font-size: 24px;
+  opacity: 0.3;
+  animation: floatRose 15s linear infinite;
+}
 
-  // start music (allowed because user clicked)
-  const music = document.getElementById("bgMusic");
-  if (music) {
-    music.volume = 0.6;
-    music.play();
+@keyframes floatRose {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(110vh) rotate(360deg);
   }
 }
 
-/* ---------- SHOW PHOTOS (SECOND CLICK) ---------- */
-function showPhotos(btn) {
-  // hide second button
-  btn.style.display = "none";
-
-  // show photos row
-  document.getElementById("photos").style.display = "flex";
-
-  // heart burst effect
-  heartBurst();
+/* ================= SPARKLES ================= */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sparkle 3s infinite ease-in-out;
 }
 
-/* ---------- HEART BURST ---------- */
-function heartBurst() {
-  for (let i = 0; i < 15; i++) {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💖";
-    heart.style.left = 50 + (Math.random() * 20 - 10) + "vw";
-    heart.style.top = "60vh";
-    heart.style.fontSize = "18px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 1000);
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(0.5);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
   }
 }
 
-/* ---------- CURSOR HEART TRAIL (DESKTOP ONLY) ---------- */
-document.addEventListener("mousemove", (e) => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💖";
-  heart.style.left = e.clientX + "px";
-  heart.style.top = e.clientY + "px";
-  document.body.appendChild(heart);
+/* ================= CARD ================= */
+.card {
+  background: rgba(255,255,255,0.18);
+  padding: 26px 22px;
+  width: 92%;
+  max-width: 380px;
+  border-radius: 26px;
+  backdrop-filter: blur(12px);
+  animation: fadeIn 1.5s ease;
+}
 
-  setTimeout(() => heart.remove(), 1000);
-});
-
-/* ---------- COUNTDOWN ---------- */
-const valentinesDate = new Date("Feb 14, 2026 00:00:00").getTime();
-
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = valentinesDate - now;
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const mins = Math.floor((diff / (1000 * 60)) % 60);
-
-  const countdown = document.getElementById("countdown");
-  if (countdown) {
-    countdown.innerHTML =
-      `⏳ ${days} days ${hours} hrs ${mins} mins left for Valentine’s Day ❤️`;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-}, 1000);
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-/* ---------- FULLSCREEN PHOTO VIEWER ---------- */
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".photos-row img").forEach(img => {
-    img.addEventListener("click", () => {
-      document.getElementById("viewerImg").src = img.src;
-      document.getElementById("viewer").classList.remove("hidden");
-    });
-  });
-});
+/* ================= BUTTON ================= */
+button {
+  background: #ff3366;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+}
 
-function closeViewer() {
-  document.getElementById("viewer").classList.add("hidden");
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255,51,102,0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255,51,102,0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255,51,102,0);
+  }
+}
+
+/* ================= ROSE (HERO IMAGE) ================= */
+.rose {
+  width: 75vw;
+  max-width: 300px;
+  margin: 18px auto;
+  display: block;
+  border-radius: 20px;
+  animation: popGlow 1.5s ease, breathe 4s ease-in-out infinite;
+}
+
+@keyframes popGlow {
+  0% {
+    transform: scale(0);
+    filter: brightness(1);
+  }
+  60% {
+    transform: scale(1.2);
+    filter: brightness(1.5);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* ================= MESSAGE ================= */
+.message {
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 16px 10px;
+}
+
+/* ================= PHOTOS (CRITICAL FIX) ================= */
+/* Photos are HIDDEN BY DEFAULT */
+.photos-row {
+  display: none;              /* <<< THIS IS THE KEY FIX */
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Photo styling */
+.photos-row img {
+  width: 28%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 14px;
+  animation: photoPop 0.8s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Middle photo slightly bigger */
+.photos-row img:nth-child(2) {
+  width: 36%;
+  transform: scale(1.05);
+}
+
+/* Hover / tap */
+.photos-row img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 22px rgba(255, 0, 80, 0.35);
+}
+
+.photos-row img:active {
+  transform: scale(1.12);
+  box-shadow: 0 12px 28px rgba(255, 0, 90, 0.45);
+}
+
+@keyframes photoPop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ================= HEARTS ================= */
+.heart {
+  position: fixed;
+  font-size: 16px;
+  pointer-events: none;
+  animation: heartFade 1s ease-out forwards;
+}
+
+@keyframes heartFade {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* ================= COUNTDOWN ================= */
+#countdown {
+  position: fixed;
+  bottom: 15px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ================= MOBILE TUNING ================= */
+@media (max-width: 480px) {
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+
+  button {
+    font-size: 15px;
+    padding: 12px 18px;
+  }
+
+  .message {
+    font-size: 17px;
+  }
 }
