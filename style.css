@@ -11,13 +11,17 @@ body {
   background: radial-gradient(circle, #ff9a9e, #fad0c4);
   color: white;
   height: 100vh;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
+
+  justify-content: center;     /* base center */
+  padding-top: 0;              /* reset */
+  transform: translateY(-6vh); /* MOVE CONTENT UP */
+  
   overflow: hidden;
   text-align: center;
-  padding-top: 30px;
 }
 
 /* ================= UTIL ================= */
