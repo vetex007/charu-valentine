@@ -240,18 +240,18 @@ button {
 @media (max-width: 480px) {
 
   .rose {
-    width: 82vw;        /* was 75vw */
-    max-width: 320px;   /* slightly bigger */
+    width: 100vw;        /* was 75vw */
+    max-width: 420px;   /* slightly bigger */
   }
 }
 @media (max-width: 480px) {
 
   .photos-row img {
-    width: 30%;
+    width: 50%;
   }
 
   .photos-row img:nth-child(2) {
-    width: 38%;
+    width: 50%;
   }
 }
 
