@@ -13,10 +13,11 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow: hidden;
   text-align: center;
+  padding-top: 30px;
 }
 
 /* ================= UTIL ================= */
@@ -34,12 +35,8 @@ body {
 }
 
 @keyframes floatRose {
-  from {
-    transform: translateY(0) rotate(0deg);
-  }
-  to {
-    transform: translateY(110vh) rotate(360deg);
-  }
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(110vh) rotate(360deg); }
 }
 
 /* ================= SPARKLES ================= */
@@ -54,36 +51,24 @@ body {
 }
 
 @keyframes sparkle {
-  0%, 100% {
-    transform: scale(0.5);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
+  0%, 100% { transform: scale(0.5); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 1; }
 }
 
 /* ================= CARD ================= */
 .card {
   background: rgba(255,255,255,0.18);
-  padding: 26px 22px;
+  padding: 28px 20px;
   width: 98%;
-  max-width: none;
+  max-width: 440px;
   border-radius: 26px;
   backdrop-filter: blur(12px);
-  animation: fadeIn 1.5s ease;
+  animation: fadeIn 1.2s ease;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ================= BUTTON ================= */
@@ -99,81 +84,68 @@ button {
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255,51,102,0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 15px rgba(255,51,102,0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255,51,102,0);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(255,51,102,0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(255,51,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,51,102,0); }
 }
 
 /* ================= ROSE (HERO IMAGE) ================= */
 .rose {
-  width: 75vw;
-  max-width: 300px;
-  margin: 18px auto;
+  width: 88vw;
+  max-width: 360px;
+  margin: 20px auto;
   display: block;
-  border-radius: 20px;
-  animation: popGlow 1.5s ease, breathe 4s ease-in-out infinite;
+  border-radius: 22px;
+  animation: popGlow 1.4s ease, breathe 4s ease-in-out infinite;
 }
 
 @keyframes popGlow {
-  0% {
-    transform: scale(0);
-    filter: brightness(1);
-  }
-  60% {
-    transform: scale(1.2);
-    filter: brightness(1.5);
-  }
-  100% {
-    transform: scale(1);
-    filter: brightness(1);
-  }
+  0% { transform: scale(0); filter: brightness(1); }
+  60% { transform: scale(1.15); filter: brightness(1.5); }
+  100% { transform: scale(1); filter: brightness(1); }
 }
 
 @keyframes breathe {
   0% { transform: scale(1); }
-  50% { transform: scale(1.03); }
+  50% { transform: scale(1.04); }
   100% { transform: scale(1); }
 }
 
-/* ================= MESSAGE ================= */
+/* ================= MESSAGE (PROMINENT & ROMANTIC) ================= */
 .message {
-  font-size: 18px;
-  line-height: 1.4;
-  margin: 16px 10px;
+  font-family: 'Segoe UI', Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 18px 14px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* ================= PHOTOS (CRITICAL FIX) ================= */
-/* Photos are HIDDEN BY DEFAULT */
+/* ================= PHOTOS ================= */
 .photos-row {
-  display: none;              /* <<< THIS IS THE KEY FIX */
+  display: none;                 /* hidden by default */
   justify-content: space-between;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
-/* Photo styling */
 .photos-row img {
-  width: 28%;
+  width: 30%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 16px;
   animation: photoPop 0.8s ease;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Middle photo slightly bigger */
+/* Middle photo focus */
 .photos-row img:nth-child(2) {
-  width: 36%;
+  width: 40%;
   transform: scale(1.05);
 }
 
-/* Hover / tap */
+/* Hover / Tap */
 .photos-row img:hover {
   transform: scale(1.08);
   box-shadow: 0 10px 22px rgba(255, 0, 80, 0.35);
@@ -185,14 +157,8 @@ button {
 }
 
 @keyframes photoPop {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 /* ================= HEARTS ================= */
@@ -204,14 +170,8 @@ button {
 }
 
 @keyframes heartFade {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(2);
-  }
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(2); }
 }
 
 /* ================= COUNTDOWN ================= */
@@ -222,36 +182,8 @@ button {
   opacity: 0.85;
 }
 
-/* ================= MOBILE TUNING ================= */
+/* ================= MOBILE TEXT TUNING ================= */
 @media (max-width: 480px) {
   h1 { font-size: 22px; }
   h2 { font-size: 18px; }
-
-  button {
-    font-size: 15px;
-    padding: 12px 18px;
-  }
-
-  .message {
-    font-size: 17px;
-  }
 }
-
-@media (max-width: 480px) {
-
-  .rose {
-    width: 100vw;        /* was 75vw */
-    max-width: 420px;   /* slightly bigger */
-  }
-}
-@media (max-width: 480px) {
-
-  .photos-row img {
-    width: 50%;
-  }
-
-  .photos-row img:nth-child(2) {
-    width: 50%;
-  }
-}
-
