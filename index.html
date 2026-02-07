@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<h3 id="countdown"></h3>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,36 +6,52 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-  <audio id="bgMusic" loop>
-  <source src="music/romantic.mp3" type="audio/mpeg">
-</audio>
-
 <body>
 
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="music/romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Title -->
   <h1>Valentine Week for Charu 💕</h1>
 
-  <!-- Rose Day Section -->
+  <!-- Rose Day Card -->
   <div class="card">
     <h2>🌹 Rose Day 🌹</h2>
-    <button onclick="showRose(this)">Click here for your Rose 🌹</button>
 
+    <!-- First Click -->
+    <button onclick="showRose(this)">
+      Click here for your Rose 🌹
+    </button>
+
+    <!-- Rose Section (Hidden Initially) -->
     <div id="roseSection" class="hidden">
       <img src="images/rose.jpg" class="rose">
+
       <p class="message">
         Charu, like this rose, you make my world beautiful 🌹❤️
       </p>
-      <button onclick="showPhotos(this)">Click again ✨</button>
 
+      <!-- Second Click -->
+      <button onclick="showPhotos(this)">
+        Click again ✨
+      </button>
     </div>
 
-   <div id="photos" class="photos-row hidden">
-  <img src="images/pic1.jpg">
-  <img src="images/pic2.jpg">
-  <img src="images/pic3.jpg">
-</div>
-
+    <!-- Photos (Hidden Initially) -->
+    <div id="photos" class="photos-row hidden">
+      <img src="images/pic1.jpg">
+      <img src="images/pic2.jpg">
+      <img src="images/pic3.jpg">
+    </div>
   </div>
 
+  <!-- Countdown (Fixed at Bottom via CSS) -->
+  <h3 id="countdown"></h3>
+
+  <!-- JS -->
   <script src="script.js"></script>
+
 </body>
 </html>
