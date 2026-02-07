@@ -1,9 +1,11 @@
+/* ---------- RESET ---------- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ---------- BODY ---------- */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: radial-gradient(circle, #ff9a9e, #fad0c4);
@@ -17,8 +19,7 @@ body {
   text-align: center;
 }
 
-
-/* ---------- Floating Roses ---------- */
+/* ---------- FLOATING ROSES ---------- */
 .rose-float {
   position: fixed;
   top: -50px;
@@ -36,7 +37,7 @@ body {
   }
 }
 
-/* ---------- Sparkles ---------- */
+/* ---------- SPARKLES ---------- */
 .sparkle {
   position: fixed;
   width: 6px;
@@ -52,7 +53,7 @@ body {
   50% { transform: scale(1.2); opacity: 1; }
 }
 
-/* ---------- Card ---------- */
+/* ---------- CARD ---------- */
 .card {
   background: rgba(255,255,255,0.18);
   padding: 26px 22px;
@@ -63,13 +64,12 @@ body {
   animation: fadeIn 1.5s ease;
 }
 
-
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ---------- BUTTON ---------- */
 button {
   background: #ff3366;
   color: white;
@@ -87,20 +87,20 @@ button {
   100% { box-shadow: 0 0 0 0 rgba(255,51,102,0); }
 }
 
+/* ---------- UTIL ---------- */
 .hidden {
   display: none;
 }
 
-/* ---------- Rose ---------- */
+/* ---------- ROSE (HERO IMAGE) ---------- */
 .rose {
   width: 75vw;
   max-width: 300px;
   margin: 18px auto;
   display: block;
   border-radius: 20px;
-  animation: popGlow 1.5s ease;
+  animation: popGlow 1.5s ease, breathe 4s ease-in-out infinite;
 }
-
 
 @keyframes popGlow {
   0% { transform: scale(0); filter: brightness(1); }
@@ -108,44 +108,31 @@ button {
   100% { transform: scale(1); filter: brightness(1); }
 }
 
+/* gentle breathing */
+@keyframes breathe {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- MESSAGE ---------- */
 .message {
   font-size: 18px;
   line-height: 1.4;
   margin: 16px 10px;
 }
 
-
-/* ---------- Photos ---------- */
-.photos img {
-  width: 100%;
-  border-radius: 16px;
-  animation: photoPop 0.8s ease;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-/* Hover effect (desktop) */
-.photos img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 12px 25px rgba(255, 0, 80, 0.35);
-}
-
-/* Tap / active effect (mobile) */
-.photos img:active {
-  transform: scale(1.12);
-  box-shadow: 0 14px 30px rgba(255, 0, 90, 0.45);
-}
-
-/* Row layout for photos */
+/* ---------- PHOTOS (ROW BELOW ROSE) ---------- */
 .photos-row {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
-/* Smaller photos */
+/* side photos */
 .photos-row img {
-  width: 30%;
+  width: 28%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 14px;
@@ -153,7 +140,13 @@ button {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Hover / Tap effect */
+/* middle photo focus */
+.photos-row img:nth-child(2) {
+  width: 36%;
+  transform: scale(1.05);
+}
+
+/* hover / tap */
 .photos-row img:hover {
   transform: scale(1.08);
   box-shadow: 0 10px 22px rgba(255, 0, 80, 0.35);
@@ -164,7 +157,12 @@ button {
   box-shadow: 0 12px 28px rgba(255, 0, 90, 0.45);
 }
 
+@keyframes photoPop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
+/* ---------- CURSOR HEARTS ---------- */
 .heart {
   position: fixed;
   font-size: 16px;
@@ -177,25 +175,35 @@ button {
   to { opacity: 0; transform: scale(2); }
 }
 
-
-@keyframes photoPop {
-  from { transform: scale(0); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+/* ---------- COUNTDOWN ---------- */
 #countdown {
   position: fixed;
   bottom: 15px;
   font-size: 14px;
   opacity: 0.85;
 }
-@media (max-width: 480px) {
-  h1 {
-    font-size: 22px;
-  }
 
-  h2 {
-    font-size: 18px;
-  }
+/* ---------- FULLSCREEN VIEWER ---------- */
+#viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#viewer img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 18px;
+}
+
+/* ---------- MOBILE TUNING ---------- */
+@media (max-width: 480px) {
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
 
   button {
     font-size: 15px;
