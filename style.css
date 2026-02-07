@@ -114,13 +114,15 @@ button {
 /* ================= MESSAGE (PROMINENT & ROMANTIC) ================= */
 .message {
   font-family: 'Segoe UI', Georgia, 'Times New Roman', serif;
-  font-size: 20px;
+  font-size: 19px;                 /* slightly smaller, cleaner */
   line-height: 1.6;
   margin: 18px 14px;
   font-weight: 500;
-  letter-spacing: 0.4px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  letter-spacing: 0.3px;
+  color: #fff5f7;                  /* soft warm white-pink */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.18); /* VERY subtle, no 3D */
 }
+
 
 /* ================= PHOTOS ================= */
 .photos-row {
