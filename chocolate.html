@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Charu 🍫</title>
+  <link rel="stylesheet" href="style.css?v=30">
+</head>
+
+<body>
+
+  <audio id="chocoMusic" loop>
+    <source src="music/chocolate.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+
+    <h2>🍫 Chocolate Day 🍫</h2>
+
+    <!-- Gift Wrapper -->
+    <div id="chocoWrapper" class="choco-wrapper" onclick="openChocolate()">
+      🎁
+      <p class="hint">Tap to open your sweet surprise</p>
+    </div>
+
+    <!-- Chocolate Reveal -->
+    <div id="chocoReveal" class="hidden">
+      <img src="images/chocolate.png" class="chocolate">
+
+      <p id="chocoText" class="message"></p>
+
+      <img src="images/us2.jpg" class="final-photo hidden" id="chocoPhoto">
+    </div>
+
+  </div>
+
+  <script src="chocolate.js"></script>
+</body>
+</html>
