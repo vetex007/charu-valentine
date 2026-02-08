@@ -193,3 +193,34 @@ button {
     font-size: 20px;
   }
 }
+
+/* ================= CHOCOLATE DAY ================= */
+
+.choco-wrapper {
+  font-size: 64px;
+  cursor: pointer;
+  animation: bounce 1.6s infinite;
+}
+
+.hint {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.chocolate {
+  width: 160px;
+  margin: 16px auto;
+  animation: pop 0.8s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
