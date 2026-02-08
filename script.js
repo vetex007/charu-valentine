@@ -112,3 +112,11 @@ setInterval(() => {
   }
 }, 1000);
 
+function showProposal(btn) {
+  btn.style.display = "none";
+  document.getElementById("proposeSection").classList.remove("hidden");
+}
+
+function sayYes() {
+  alert("You just made me the happiest person ❤️🥹");
+}
