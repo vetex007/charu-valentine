@@ -120,3 +120,19 @@ function showProposal(btn) {
 function sayYes() {
   alert("You just made me the happiest person ❤️🥹");
 }
+function showProposal(btn) {
+  btn.style.display = "none";
+  document.getElementById("proposeSection").classList.remove("hidden");
+}
+
+function acceptProposal() {
+  // hide proposal buttons & ring
+  document.getElementById("proposeSection").classList.add("hidden");
+
+  // show final message + photo
+  document.getElementById("proposeFinal").classList.remove("hidden");
+
+  // small heart burst for emotion
+  heartBurst();
+}
+
