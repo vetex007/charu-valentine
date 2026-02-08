@@ -199,3 +199,31 @@ button {
   #countdown { font-size: 12.5px; }
 }
 
+/* ================= PROPOSE DAY ================= */
+
+.ring {
+  font-size: 64px;
+  margin: 20px 0;
+  animation: ringPop 1.4s ease;
+}
+
+@keyframes ringPop {
+  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.propose-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.propose-buttons button {
+  animation: none; /* calmer than main button */
+  font-size: 15px;
+  padding: 12px 18px;
+}
+
+
