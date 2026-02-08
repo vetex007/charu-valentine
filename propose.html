@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>For Charu 💍</title>
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=21">
 </head>
 
 <body>
 
-  <audio autoplay loop>
+  <!-- Propose Day Music (NO autoplay) -->
+  <audio id="proposeMusic" loop>
     <source src="music/propose.mp3" type="audio/mpeg">
   </audio>
 
@@ -26,10 +27,14 @@
       <button onclick="acceptProposal()">Always 🥰</button>
     </div>
 
+    <!-- FINAL REVEAL -->
     <div id="final" class="hidden">
       <p class="message">
-        You chose love… and you chose me ❤️
+        You chose love… and you chose me ❤️<br>
+        I promise to walk with you, grow with you,<br>
+        and love you more every single day.
       </p>
+
       <img src="images/us.jpg" class="rose">
     </div>
 
