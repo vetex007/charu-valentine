@@ -226,4 +226,58 @@ button {
   padding: 12px 18px;
 }
 
+/* ================= PROPOSE DAY ================= */
+
+.ring {
+  font-size: 64px;
+  margin: 20px 0;
+  animation: ringPop 1.4s ease;
+}
+
+@keyframes ringPop {
+  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
+}
+
+.propose-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.propose-buttons button {
+  animation: none;
+  font-size: 15px;
+  padding: 12px 18px;
+}
+
+/* Final reveal */
+#proposeFinal {
+  margin-top: 20px;
+  animation: fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.final-message {
+  font-family: 'Segoe UI', Georgia, serif;
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 18px 10px;
+  color: #fff5f7;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.final-photo {
+  width: 85%;
+  max-width: 360px;
+  border-radius: 18px;
+  margin-top: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
 
