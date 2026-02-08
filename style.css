@@ -107,3 +107,24 @@ button {
 .next-day-btn:hover {
   background: rgba(255,255,255,0.3);
 }
+/* ================= FALLING HEARTS & RINGS ================= */
+
+.fall-heart,
+.fall-ring {
+  position: fixed;
+  top: -40px;
+  font-size: 18px;
+  opacity: 0.6;
+  pointer-events: none;
+  animation: fall linear forwards;
+  z-index: 0;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
