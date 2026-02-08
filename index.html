@@ -51,30 +51,38 @@
   <h3 id="countdown"></h3>
 
   <!-- JS -->
-  <!-- Propose Day Card -->
-<div class="card">
+  <!-- ================= PROPOSE DAY ================= -->
+<div class="card" id="proposeCard">
   <h2>💍 Propose Day 💍</h2>
 
+  <!-- First button -->
   <button onclick="showProposal(this)">
     I have something to ask you…
   </button>
 
+  <!-- Proposal section -->
   <div id="proposeSection" class="hidden">
     <div class="ring">💍</div>
 
     <p class="message">
-      Charu, every day feels special with you.<br>
+      Charu, every moment with you feels special.<br>
       Will you always be by my side? ❤️
     </p>
 
     <div class="propose-buttons">
-      <button onclick="sayYes()">Yes 💖</button>
-      <button onclick="sayYes()">Always 🥰</button>
+      <button onclick="acceptProposal()">Yes 💖</button>
+      <button onclick="acceptProposal()">Always 🥰</button>
     </div>
   </div>
+
+  <!-- Final reveal after YES -->
+  <div id="proposeFinal" class="hidden">
+    <p class="final-message">
+      You chose love… and you chose me ❤️<br>
+      I promise to stand with you, laugh with you,<br>
+      and love you a little more every single day.
+    </p>
+
+    <img src="images/us.jpg" class="final-photo">
+  </div>
 </div>
-
-  <script src="script.js?v=7"></script>
-
-</body>
-</html>
