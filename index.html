@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>For Charu 💖</title>
-  <link rel="stylesheet" href="style.css?v=10">
+  <link rel="stylesheet" href="style.css?v=20">
 </head>
 
 <body>
 
-  <!-- Background Music -->
+  <!-- Background Music (Rose Day) -->
   <audio id="bgMusic" loop>
     <source src="music/romantic.mp3" type="audio/mpeg">
   </audio>
@@ -18,77 +18,40 @@
 
   <h1>Valentine Week for Charu 💕</h1>
 
-  <!-- ================= SWIPE CONTAINER ================= -->
-  <div class="swipe-container">
-    <div class="swipe-track" id="swipeTrack">
+  <!-- ROSE DAY CARD -->
+  <div class="card">
 
-      <!-- ================= ROSE DAY ================= -->
-      <section class="day-slide">
-        <div class="card">
-          <h2>🌹 Rose Day 🌹</h2>
+    <h2>🌹 Rose Day 🌹</h2>
 
-          <button onclick="showRose(this)">
-            Click here for your Rose 🌹
-          </button>
+    <button onclick="showRose(this)">
+      Click here for your Rose 🌹
+    </button>
 
-          <div id="roseSection" class="hidden">
-            <img src="images/rose.jpg" class="rose">
+    <div id="roseSection" class="hidden">
+      <img src="images/rose.jpg" class="rose">
 
-            <p class="message">
-              Charu, like this rose, you make my world beautiful 🌹❤️
-            </p>
+      <p class="message">
+        Charu, like this rose, you make my world beautiful 🌹❤️
+      </p>
 
-            <button onclick="showPhotos(this)">
-              Click again ✨
-            </button>
-          </div>
-
-          <div id="photos" class="photos-row hidden">
-            <img src="images/pic1.jpg">
-            <img src="images/pic2.jpg">
-            <img src="images/pic3.jpg">
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= PROPOSE DAY ================= -->
-      <section class="day-slide">
-        <div class="card">
-          <h2>💍 Propose Day 💍</h2>
-
-          <button onclick="showProposal(this)">
-            I have something to ask you…
-          </button>
-
-          <div id="proposeSection" class="hidden">
-            <div class="ring">💍</div>
-
-            <p class="message">
-              Charu, every moment with you feels special.<br>
-              Will you always be by my side? ❤️
-            </p>
-
-            <div class="propose-buttons">
-              <button onclick="acceptProposal()">Yes 💖</button>
-              <button onclick="acceptProposal()">Always 🥰</button>
-            </div>
-          </div>
-
-          <div id="proposeFinal" class="hidden">
-            <p class="final-message">
-              You chose love… and you chose me ❤️<br>
-              I promise to stand with you, laugh with you,<br>
-              and love you a little more every single day.
-            </p>
-
-            <img src="images/us.jpg" class="final-photo">
-          </div>
-        </div>
-      </section>
-
+      <button onclick="showPhotos(this)">
+        Click again ✨
+      </button>
     </div>
+
+    <div id="photos" class="photos-row hidden">
+      <img src="images/pic1.jpg">
+      <img src="images/pic2.jpg">
+      <img src="images/pic3.jpg">
+    </div>
+
+    <!-- GO TO NEXT DAY -->
+    <a href="propose.html" class="next-day-btn">
+      Go to Propose Day 💍
+    </a>
+
   </div>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=20"></script>
 </body>
 </html>
