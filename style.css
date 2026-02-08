@@ -1,76 +1,56 @@
-/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ================= BODY ================= */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: radial-gradient(circle, #ff9a9e, #fad0c4);
   color: white;
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  transform: translateY(-6vh); /* slightly above center */
+  transform: translateY(-6vh);
   overflow: hidden;
   text-align: center;
 }
 
-/* ================= UTIL ================= */
-.hidden {
-  display: none !important;
-}
+.hidden { display: none !important; }
 
-/* ================= COUNTDOWN (TOP) ================= */
+/* ================= COUNTDOWN ================= */
 #countdown {
   position: fixed;
   top: 14px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 13px;
-  opacity: 0.85;
-  z-index: 10;
-  white-space: nowrap;
   background: rgba(255,255,255,0.15);
   padding: 4px 10px;
   border-radius: 12px;
   backdrop-filter: blur(6px);
+  z-index: 10;
 }
 
-/* ================= FLOATING ROSES ================= */
-.rose-float {
-  position: fixed;
-  top: -50px;
-  font-size: 24px;
-  opacity: 0.3;
-  animation: floatRose 15s linear infinite;
+/* ================= SWIPE ================= */
+.swipe-container {
+  width: 100%;
+  overflow: hidden;
 }
 
-@keyframes floatRose {
-  from { transform: translateY(0) rotate(0deg); }
-  to { transform: translateY(110vh) rotate(360deg); }
+.swipe-track {
+  display: flex;
+  width: 200%;
+  transition: transform 0.45s ease;
 }
 
-/* ================= SPARKLES ================= */
-.sparkle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: sparkle 3s infinite ease-in-out;
-}
-
-@keyframes sparkle {
-  0%, 100% { transform: scale(0.5); opacity: 0.3; }
-  50% { transform: scale(1.2); opacity: 1; }
+.day-slide {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
 }
 
 /* ================= CARD ================= */
@@ -81,12 +61,6 @@ body {
   max-width: 440px;
   border-radius: 26px;
   backdrop-filter: blur(12px);
-  animation: fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ================= BUTTON ================= */
@@ -98,52 +72,28 @@ button {
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
-  animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255,51,102,0.6); }
-  70% { box-shadow: 0 0 0 15px rgba(255,51,102,0); }
-  100% { box-shadow: 0 0 0 0 rgba(255,51,102,0); }
-}
-
-/* ================= ROSE (HERO IMAGE) ================= */
+/* ================= ROSE ================= */
 .rose {
   width: 88vw;
   max-width: 420px;
   margin: 20px auto;
-  display: block;
   border-radius: 22px;
-  animation: popGlow 1.4s ease, breathe 4s ease-in-out infinite;
 }
 
-@keyframes popGlow {
-  0% { transform: scale(0); filter: brightness(1); }
-  60% { transform: scale(1.15); filter: brightness(1.5); }
-  100% { transform: scale(1); filter: brightness(1); }
-}
-
-@keyframes breathe {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.04); }
-  100% { transform: scale(1); }
-}
-
-/* ================= MESSAGE (SOFT & ROMANTIC) ================= */
+/* ================= MESSAGE ================= */
 .message {
-  font-family: 'Segoe UI', Georgia, 'Times New Roman', serif;
+  font-family: 'Segoe UI', Georgia, serif;
   font-size: 19px;
   line-height: 1.6;
   margin: 18px 14px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
   color: #fff5f7;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.18);
 }
 
 /* ================= PHOTOS ================= */
 .photos-row {
-  display: none; /* hidden by default */
+  display: none;
   justify-content: space-between;
   gap: 10px;
   margin-top: 22px;
@@ -152,125 +102,28 @@ button {
 .photos-row img {
   width: 30%;
   aspect-ratio: 3 / 4;
-  object-fit: cover;
   border-radius: 16px;
-  animation: photoPop 0.8s ease;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* middle photo focus */
 .photos-row img:nth-child(2) {
   width: 40%;
-  transform: scale(1.05);
 }
 
-.photos-row img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 10px 22px rgba(255, 0, 80, 0.35);
-}
-
-.photos-row img:active {
-  transform: scale(1.12);
-  box-shadow: 0 12px 28px rgba(255, 0, 90, 0.45);
-}
-
-@keyframes photoPop {
-  from { transform: scale(0); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* ================= HEARTS ================= */
-.heart {
-  position: fixed;
-  font-size: 16px;
-  pointer-events: none;
-  animation: heartFade 1s ease-out forwards;
-}
-
-@keyframes heartFade {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(2); }
-}
-
-/* ================= MOBILE TEXT TUNING ================= */
-@media (max-width: 480px) {
-  h1 { font-size: 22px; }
-  h2 { font-size: 18px; }
-  #countdown { font-size: 12.5px; }
-}
-
-/* ================= PROPOSE DAY ================= */
-
+/* ================= PROPOSE ================= */
 .ring {
   font-size: 64px;
   margin: 20px 0;
-  animation: ringPop 1.4s ease;
-}
-
-@keyframes ringPop {
-  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
-  60% { transform: scale(1.2) rotate(10deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0); }
 }
 
 .propose-buttons {
   display: flex;
   justify-content: center;
   gap: 14px;
-  margin-top: 18px;
-}
-
-.propose-buttons button {
-  animation: none; /* calmer than main button */
-  font-size: 15px;
-  padding: 12px 18px;
-}
-
-/* ================= PROPOSE DAY ================= */
-
-.ring {
-  font-size: 64px;
-  margin: 20px 0;
-  animation: ringPop 1.4s ease;
-}
-
-@keyframes ringPop {
-  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
-  60% { transform: scale(1.2) rotate(10deg); opacity: 1; }
-  100% { transform: scale(1) rotate(0); }
-}
-
-.propose-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 18px;
-}
-
-.propose-buttons button {
-  animation: none;
-  font-size: 15px;
-  padding: 12px 18px;
-}
-
-/* Final reveal */
-#proposeFinal {
-  margin-top: 20px;
-  animation: fadeUp 1.2s ease;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .final-message {
-  font-family: 'Segoe UI', Georgia, serif;
   font-size: 20px;
-  line-height: 1.6;
   margin: 18px 10px;
-  color: #fff5f7;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 
 .final-photo {
@@ -278,6 +131,4 @@ button {
   max-width: 360px;
   border-radius: 18px;
   margin-top: 16px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
-
