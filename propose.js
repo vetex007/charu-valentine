@@ -25,3 +25,16 @@ function acceptProposal() {
     setTimeout(() => heart.remove(), 1200);
   }
 }
+/* ================= FALLING LOVE ================= */
+setInterval(() => {
+  const el = document.createElement("div");
+  el.className = Math.random() > 0.5 ? "fall-heart" : "fall-ring";
+  el.innerHTML = el.className === "fall-heart" ? "💖" : "💍";
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.animationDuration = 6 + Math.random() * 4 + "s";
+  document.body.appendChild(el);
+
+  setTimeout(() => el.remove(), 10000);
+}, 700);
+
+
