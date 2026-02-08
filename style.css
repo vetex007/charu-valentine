@@ -20,7 +20,7 @@ body {
 
 .hidden { display: none !important; }
 
-/* ================= COUNTDOWN ================= */
+/* Countdown */
 #countdown {
   position: fixed;
   top: 14px;
@@ -34,26 +34,7 @@ body {
   z-index: 10;
 }
 
-/* ================= SWIPE ================= */
-.swipe-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.swipe-track {
-  display: flex;
-  width: 200%;
-  transition: transform 0.45s ease;
-}
-
-.day-slide {
-  width: 100%;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-}
-
-/* ================= CARD ================= */
+/* Card */
 .card {
   background: rgba(255,255,255,0.18);
   padding: 28px 20px;
@@ -63,7 +44,7 @@ body {
   backdrop-filter: blur(12px);
 }
 
-/* ================= BUTTON ================= */
+/* Buttons */
 button {
   background: #ff3366;
   color: white;
@@ -72,9 +53,10 @@ button {
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
-/* ================= ROSE ================= */
+/* Rose */
 .rose {
   width: 88vw;
   max-width: 420px;
@@ -82,7 +64,7 @@ button {
   border-radius: 22px;
 }
 
-/* ================= MESSAGE ================= */
+/* Message */
 .message {
   font-family: 'Segoe UI', Georgia, serif;
   font-size: 19px;
@@ -91,7 +73,7 @@ button {
   color: #fff5f7;
 }
 
-/* ================= PHOTOS ================= */
+/* Photos */
 .photos-row {
   display: none;
   justify-content: space-between;
@@ -109,26 +91,19 @@ button {
   width: 40%;
 }
 
-/* ================= PROPOSE ================= */
-.ring {
-  font-size: 64px;
-  margin: 20px 0;
+/* Next day button */
+.next-day-btn {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 12px 26px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.22);
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  backdrop-filter: blur(6px);
 }
 
-.propose-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-}
-
-.final-message {
-  font-size: 20px;
-  margin: 18px 10px;
-}
-
-.final-photo {
-  width: 85%;
-  max-width: 360px;
-  border-radius: 18px;
-  margin-top: 16px;
+.next-day-btn:hover {
+  background: rgba(255,255,255,0.3);
 }
