@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>For Charu 💍</title>
-  <link rel="stylesheet" href="style.css?v=21">
+  <link rel="stylesheet" href="style.css?v=22">
 </head>
 
 <body>
 
-  <!-- Propose Day Music (NO autoplay) -->
+  <!-- Propose Day Music (starts after click) -->
   <audio id="proposeMusic" loop>
     <source src="music/propose.mp3" type="audio/mpeg">
   </audio>
@@ -17,25 +17,32 @@
 
     <h2>💍 Propose Day 💍</h2>
 
-    <p class="message">
-      Charu,<br>
-      will you always be by my side? ❤️
-    </p>
+    <!-- QUESTION SECTION -->
+    <div id="proposalQuestion">
+      <p class="message">
+        Charu,<br>
+        will you always be by my side? ❤️
+      </p>
 
-    <div class="propose-buttons">
-      <button onclick="acceptProposal()">Yes 💖</button>
-      <button onclick="acceptProposal()">Always 🥰</button>
+      <div class="propose-buttons">
+        <button onclick="acceptProposal()">Yes 💖</button>
+        <button onclick="acceptProposal()">Always 🥰</button>
+      </div>
     </div>
 
     <!-- FINAL REVEAL -->
     <div id="final" class="hidden">
-      <p class="message">
-        You chose love… and you chose me ❤️<br>
-        I promise to walk with you, grow with you,<br>
-        and love you more every single day.
+      <p class="final-message">
+        Charu You chose love… and you chose me ❤️<br><br>
+
+        From this moment on, I promise to walk with you in every season —
+        through smiles and silence, dreams and doubts.<br><br>
+
+        I may not be perfect, but my love for you will always be true.
+        Every day, I’ll choose you again… and again… and again...  💖
       </p>
 
-      <img src="images/us.jpg" class="rose">
+      <img src="images/us.jpg" class="final-photo">
     </div>
 
   </div>
