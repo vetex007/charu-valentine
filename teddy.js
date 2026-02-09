@@ -78,7 +78,7 @@ function revealLove() {
   setTimeout(() => {
     const second = document.getElementById("teddySecond");
     if (second) second.classList.remove("hidden");
-  }, 2500); // 2.5 seconds feels perfect
+  }, 4000); // 2.5 seconds feels perfect
 }
 
 
