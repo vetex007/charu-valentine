@@ -246,15 +246,44 @@ button {
 }
 
 
-/* ================= TEDDY DAY ================= */
 
+
+/* ================= DISABLE TEXT SELECTION ================= */
+* {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* ================= TEDDY INTERACTION ================= */
 .teddy {
-  font-size: 90px;
-  margin: 20px 0;
+  font-size: 96px;
+  margin: 22px 0;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
+
 .teddy:active {
   transform: scale(1.15);
+}
+/* ================= FALLING TEDDIES ================= */
+.fall-teddy {
+  position: fixed;
+  top: -40px;
+  font-size: 22px;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: teddyFall linear forwards;
+  z-index: 0;
+}
+
+@keyframes teddyFall {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
 }
