@@ -1,44 +1,90 @@
 let holdTimer;
 let hugged = false;
+let rainStarted = false;
 
 const teddy = document.getElementById("teddy");
 const music = document.getElementById("teddyMusic");
 
+/* ================= BLOCK LONG PRESS / COPY ================= */
+["contextmenu", "selectstart", "dragstart"].forEach(evt => {
+  document.addEventListener(evt, e => e.preventDefault());
+});
+
+/* ================= EVENT LISTENERS ================= */
 teddy.addEventListener("mousedown", startHold);
-teddy.addEventListener("touchstart", startHold);
+teddy.addEventListener("touchstart", startHold, { passive: false });
 
 teddy.addEventListener("mouseup", cancelHold);
 teddy.addEventListener("mouseleave", cancelHold);
 teddy.addEventListener("touchend", cancelHold);
 
-function startHold() {
+/* ================= HOLD START ================= */
+function startHold(e) {
+  e.preventDefault();
   if (hugged) return;
 
-  // start music gently
-  music.volume = 0.4;
-  music.play();
+  // Visual feedback immediately
+  teddy.classList.add("hugging");
 
-  // warm background
+  // Warm background
   document.body.style.background =
     "radial-gradient(circle, #ffd1dc, #ff9a9e)";
 
+  // Start music gently
+  if (music) {
+    music.volume = 0.4;
+    music.play();
+  }
+
+  // Start hug timer
   holdTimer = setTimeout(() => {
     hugged = true;
     revealLove();
-  }, 3000); // 3 seconds hold
+  }, 3000); // 3-second hug
 }
 
+/* ================= HOLD CANCEL ================= */
 function cancelHold() {
   if (!hugged) {
     clearTimeout(holdTimer);
-    music.pause();
+
+    teddy.classList.remove("hugging");
+
+    if (music) music.pause();
   }
 }
 
+/* ================= FINAL REVEAL ================= */
 function revealLove() {
-  document.getElementById("teddyHint").style.display = "none";
-  document.getElementById("teddyFinal").classList.remove("hidden");
-
-  // teddy pulse
+  // Stop pulse, keep teddy slightly big
+  teddy.classList.remove("hugging");
   teddy.style.transform = "scale(1.1)";
+
+  // Hide hint text
+  const hint = document.getElementById("teddyHint");
+  if (hint) hint.style.display = "none";
+
+  // Show final message + photo
+  const final = document.getElementById("teddyFinal");
+  if (final) final.classList.remove("hidden");
+
+  // Start teddy rain only once
+  if (!rainStarted) {
+    startTeddyRain();
+    rainStarted = true;
+  }
+}
+
+/* ================= FALLING TEDDIES 🧸 ================= */
+function startTeddyRain() {
+  setInterval(() => {
+    const drop = document.createElement("div");
+    drop.className = "fall-teddy";
+    drop.innerHTML = "🧸";
+    drop.style.left = Math.random() * 100 + "vw";
+    drop.style.animationDuration = 7 + Math.random() * 4 + "s";
+    document.body.appendChild(drop);
+
+    setTimeout(() => drop.remove(), 12000);
+  }, 1200); // slow, cozy rain
 }
