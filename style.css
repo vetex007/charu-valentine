@@ -224,3 +224,25 @@ button {
   to { transform: scale(1); opacity: 1; }
 }
 
+/* ================= FALLING CHOCOLATES ================= */
+
+.fall-choco {
+  position: fixed;
+  top: -40px;
+  font-size: 20px;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: chocoFall linear forwards;
+  z-index: 0;
+}
+
+@keyframes chocoFall {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+
