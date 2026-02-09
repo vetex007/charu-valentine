@@ -64,7 +64,7 @@ function revealLove() {
   const hint = document.getElementById("teddyHint");
   if (hint) hint.style.display = "none";
 
-  // Show final message + photo
+  // Show first message + photo
   const final = document.getElementById("teddyFinal");
   if (final) final.classList.remove("hidden");
 
@@ -73,7 +73,14 @@ function revealLove() {
     startTeddyRain();
     rainStarted = true;
   }
+
+  // SECOND reveal after a pause (emotional timing)
+  setTimeout(() => {
+    const second = document.getElementById("teddySecond");
+    if (second) second.classList.remove("hidden");
+  }, 2500); // 2.5 seconds feels perfect
 }
+
 
 /* ================= FALLING TEDDIES 🧸 ================= */
 function startTeddyRain() {
