@@ -1,3 +1,5 @@
+/* ================= CHOCOLATE DAY MESSAGE ================= */
+
 const messageLines = [
   "Just like chocolate… 🍫",
   "you make everything sweeter.",
@@ -8,23 +10,42 @@ const messageLines = [
   "but my heart with it ❤️"
 ];
 
+let chocoRainStarted = false;
+
 function openChocolate() {
-  // hide wrapper
-  document.getElementById("chocoWrapper").style.display = "none";
+  // 1️⃣ Hide wrapper
+  const wrapper = document.getElementById("chocoWrapper");
+  if (wrapper) wrapper.style.display = "none";
 
-  // show chocolate
-  document.getElementById("chocoReveal").classList.remove("hidden");
+  // 2️⃣ Show chocolate section
+  const reveal = document.getElementById("chocoReveal");
+  if (reveal) reveal.classList.remove("hidden");
 
-  // play music after interaction
+  // 3️⃣ Play music AFTER click (browser-safe)
   const music = document.getElementById("chocoMusic");
-  music.volume = 0.6;
-  music.play();
+  if (music) {
+    music.volume = 0.6;
+    music.play();
+  }
 
+  // 4️⃣ Start chocolate rain only once
+  if (!chocoRainStarted) {
+    startChocolateRain();
+    chocoRainStarted = true;
+  }
+
+  // 5️⃣ Start typing effect
   typeMessage();
 }
 
+/* ================= TYPING EFFECT ================= */
+
 function typeMessage() {
   const textEl = document.getElementById("chocoText");
+  if (!textEl) return;
+
+  textEl.innerHTML = ""; // safety reset
+
   let line = 0;
   let char = 0;
 
@@ -41,10 +62,26 @@ function typeMessage() {
         setTimeout(type, 400);
       }
     } else {
-      // show photo at end
-      document.getElementById("chocoPhoto").classList.remove("hidden");
+      // 6️⃣ Show photo at the end
+      const photo = document.getElementById("chocoPhoto");
+      if (photo) photo.classList.remove("hidden");
     }
   }
 
   type();
+}
+
+/* ================= CHOCOLATE RAIN 🍫 ================= */
+
+function startChocolateRain() {
+  setInterval(() => {
+    const choco = document.createElement("div");
+    choco.className = "fall-choco";
+    choco.innerHTML = "🍫";
+    choco.style.left = Math.random() * 100 + "vw";
+    choco.style.animationDuration = 6 + Math.random() * 4 + "s";
+    document.body.appendChild(choco);
+
+    setTimeout(() => choco.remove(), 10000);
+  }, 900); // slower = more elegant
 }
