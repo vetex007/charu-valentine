@@ -246,3 +246,15 @@ button {
 }
 
 
+/* ================= TEDDY DAY ================= */
+
+.teddy {
+  font-size: 90px;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.teddy:active {
+  transform: scale(1.15);
+}
