@@ -298,4 +298,18 @@ button {
   50%  { transform: scale(1.12); }
   100% { transform: scale(1); }
 }
+/* ================= TEDDY DAY MESSAGE COLORS ================= */
+
+/* First message (comfort tone) */
+#teddyFinal .final-message {
+  color: #4a2c2a; /* deep warm brown */
+  text-shadow: none;
+}
+
+/* Second message (romantic tone) */
+#teddySecond .final-message {
+  color: #6b1f3a; /* rich maroon */
+  font-weight: 600;
+  text-shadow: none;
+}
 
