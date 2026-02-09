@@ -287,3 +287,15 @@ button {
     transform: translateY(110vh) rotate(360deg);
   }
 }
+/* ================= HEARTBEAT / HUG PULSE ================= */
+.teddy.hugging {
+  animation: hugPulse 0.9s infinite;
+  filter: drop-shadow(0 0 28px rgba(255,255,255,0.7));
+}
+
+@keyframes hugPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
