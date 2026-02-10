@@ -279,14 +279,21 @@ body.promise-page .fade-out {
   animation: fadeOut 0.6s ease forwards;
 }
 
+/* Promise Day – Falling Love (FIXED) */
 body.promise-page .fall-love {
   position: fixed;
-  top: -40px;
+  top: -60px;                 /* ALWAYS start above screen */
+  left: 0;
   font-size: 18px;
-  opacity: 0.7;
+  opacity: 0.75;
   pointer-events: none;
-  animation: loveFall linear forwards;
+  animation-name: loveFall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  z-index: 0;
 }
+
+
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(18px); }
