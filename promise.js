@@ -1,35 +1,35 @@
 const promises = [
   {
     text: "I will always be yours.",
-    photo: "images/her.jpg"
+    photo: "images/1.jpg"
   },
   {
     text: "I will stay with you, no matter what.",
-    photo: "images/us.jpg"
+    photo: "images/2.jpg"
   },
   {
     text: "I promise to listen — even when words are hard.",
-    photo: "images/us2.jpg"
+    photo: "images/3.jpg"
   },
   {
     text: "I promise to stand with you — not ahead of you, not behind you.",
-    photo: null
+    photo: "images/4.jpeg"
   },
   {
     text: "I will safeguard you from every obstacle life brings.",
-    photo: null
+    photo: "images/5.jpg"
   },
   {
     text: "I promise to choose you — on good days and bad.",
-    photo: "images/us3.jpg"
+    photo: "images/us6.jpg"
   },
   {
     text: "I will give you all the happiness I can — and share every smile with you.",
-    photo: null
+    photo: "images/7.jpeg"
   },
   {
     text: "Above everything else, I promise to love you honestly, deeply, and always.",
-    photo: "images/us3.jpg",
+    photo: "images/8.jpeg",
     final: true
   }
 ];
