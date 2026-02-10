@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Charu 🤞</title>
+  <link rel="stylesheet" href="style.css?v=60">
+</head>
+
+<body>
+
+  <!-- Promise Day Music -->
+  <audio id="promiseMusic" loop>
+    <source src="music/promise.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+
+    <h2>🤞 Promise Day 🤞</h2>
+
+    <!-- PROMISE TEXT -->
+    <p id="promiseText" class="final-message">
+      Tap to read my promises 🤍
+    </p>
+
+    <!-- PHOTO (changes per promise) -->
+    <img id="promisePhoto" class="final-photo hidden">
+
+    <!-- NEXT BUTTON -->
+    <button id="nextPromiseBtn" onclick="nextPromise()">
+      Next Promise 🤍
+    </button>
+
+  </div>
+
+  <script src="promise.js"></script>
+</body>
+</html>
