@@ -77,8 +77,8 @@ function startLoveRain() {
     const heart = document.createElement("div");
     heart.className = "fall-love";
     heart.innerHTML = "❤️";
-
     heart.style.left = Math.random() * 100 + "vw";
+    heart.style.transform = `translateX(${Math.random() * 40 - 20}px)`;
     heart.style.animationDuration = (6 + Math.random() * 4) + "s";
 
     document.body.appendChild(heart);
