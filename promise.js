@@ -72,17 +72,17 @@ function nextPromise() {
 
   }, 800); // smooth transition timing
 }
-
-/* ================= FALLING LOVE ❤️ ================= */
 function startLoveRain() {
   setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "fall-love";
     heart.innerHTML = "❤️";
+
     heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 6 + Math.random() * 4 + "s";
+    heart.style.animationDuration = (6 + Math.random() * 4) + "s";
+
     document.body.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 10000);
-  }, 1000); // calm & romantic
+    setTimeout(() => heart.remove(), 12000);
+  }, 900); // smooth, romantic pace
 }
