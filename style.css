@@ -333,6 +333,26 @@ button {
     transform: translateY(0);
   }
 }
+/* ================= FALLING LOVE ================= */
+
+.fall-love {
+  position: fixed;
+  top: -40px;
+  font-size: 18px;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: loveFall linear forwards;
+  z-index: 0;
+}
+
+@keyframes loveFall {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
 
 @keyframes fadeOut {
   from { opacity: 1; }
