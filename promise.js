@@ -4,7 +4,7 @@ const promises = [
   { text: "I promise to listen — even when words are hard.", photo: "images/3.jpg" },
   { text: "I promise to stand with you — not ahead of you, not behind you.", photo: "images/4.jpeg" },
   { text: "I will safeguard you from every obstacle life brings.", photo: "images/5.jpg" },
-  { text: "I promise to choose you — on good days and bad.", photo: "images/us6.jpg" },
+  { text: "I promise to choose you — on good days and bad.", photo: "images/6.jpg" },
   { text: "I will give you all the happiness I can — and share every smile with you.", photo: "images/7.jpeg" },
   {
     text: "Above everything else, I promise to love you honestly, deeply, and always.",
