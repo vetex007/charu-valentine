@@ -262,14 +262,22 @@ body.promise-page #promiseText {
   color: #3b1f2b;
   font-size: 20px;
   line-height: 1.7;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 body.promise-page #promiseText.final {
   color: #6b1f3a;
   font-size: 22px;
+  font-weight: 700;
   animation: finalGlow 1.6s ease forwards;
 }
+
+/* ================= PROMISE DAY FIX ================= */
+body.promise-page {
+  transform: none;            /* ✅ restore true viewport */
+  overflow: hidden;
+}
+
 
 body.promise-page .fade-in {
   animation: fadeInUp 0.8s ease forwards;
@@ -278,6 +286,7 @@ body.promise-page .fade-in {
 body.promise-page .fade-out {
   animation: fadeOut 0.6s ease forwards;
 }
+
 
 /* Promise Day – Falling Love (FIXED) */
 body.promise-page .fall-love {
