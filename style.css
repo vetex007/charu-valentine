@@ -332,4 +332,78 @@ body.promise-page .fall-love {
   .message { font-size: 18px; }
   body.promise-page #promiseText.final { font-size: 21px; }
 }
+/* =====================================================
+   HUG DAY — SCOPED ONLY
+===================================================== */
+
+body.hug-page {
+  background: radial-gradient(circle, #ffd6e0, #ff9a9e);
+}
+
+/* Hug icon */
+.hug-icon {
+  font-size: 96px;
+  margin: 22px 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Holding effect */
+.hug-icon.hugging {
+  animation: hugPulse 0.9s infinite;
+  filter: drop-shadow(0 0 28px rgba(255,255,255,0.7));
+}
+
+/* Hug pulse */
+@keyframes hugPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Text */
+.hug-text {
+  font-size: 19px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.hug-hint {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Final message */
+.hug-final-text {
+  font-size: 20px;
+  line-height: 1.7;
+  margin: 18px 10px;
+  color: #4a2c2a;
+}
+
+/* Photo */
+.hug-photo {
+  width: 85%;
+  max-width: 360px;
+  border-radius: 18px;
+  margin-top: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Falling hearts */
+.hug-heart {
+  position: fixed;
+  top: -40px;
+  font-size: 20px;
+  opacity: 0.6;
+  pointer-events: none;
+  animation: hugHeartFall linear forwards;
+  z-index: 0;
+}
+
+@keyframes hugHeartFall {
+  from { transform: translateY(0); }
+  to   { transform: translateY(110vh); }
+}
 
