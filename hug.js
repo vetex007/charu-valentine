@@ -6,29 +6,32 @@ const hugFinal = document.getElementById("hugFinal");
 const hugHint = document.getElementById("hugHint");
 const hugMusic = document.getElementById("hugMusic");
 
-/* PREVENT LONG PRESS MENU */
+/* BLOCK LONG PRESS MENU */
 ["contextmenu", "selectstart"].forEach(evt =>
   hugIcon.addEventListener(evt, e => e.preventDefault())
 );
 
 /* EVENTS */
-hugIcon.addEventListener("mousedown", startHold);
 hugIcon.addEventListener("touchstart", startHold);
+hugIcon.addEventListener("mousedown", startHold);
 
+hugIcon.addEventListener("touchend", cancelHold);
 hugIcon.addEventListener("mouseup", cancelHold);
 hugIcon.addEventListener("mouseleave", cancelHold);
-hugIcon.addEventListener("touchend", cancelHold);
 
 function startHold(e) {
   e.preventDefault();
   if (hugged) return;
 
+  // VISUAL
   hugIcon.classList.add("hugging");
   hugHint.innerText = "Holding… 🤍";
 
+  // ✅ START MUSIC IMMEDIATELY (USER GESTURE SAFE)
   hugMusic.volume = 0.4;
-  hugMusic.play();
+  hugMusic.play().catch(() => {});
 
+  // HOLD TIMER
   holdTimer = setTimeout(() => {
     hugged = true;
     completeHug();
@@ -52,7 +55,7 @@ function completeHug() {
   startSoftHearts();
 }
 
-/* SOFT FALLING HEARTS */
+/* FALLING HEARTS */
 function startSoftHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
@@ -62,7 +65,6 @@ function startSoftHearts() {
     heart.style.animationDuration = (7 + Math.random() * 4) + "s";
 
     document.body.appendChild(heart);
-
     setTimeout(() => heart.remove(), 12000);
   }, 1300);
 }
