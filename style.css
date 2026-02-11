@@ -402,6 +402,37 @@ body.hug-page {
   z-index: 0;
 }
 
+/* ================= HUG DAY — TEXT TUNING ================= */
+
+/* Initial hint text */
+#hugHint {
+  font-size: 18px;
+  font-weight: 600;
+  color: #5a1f2b; /* deep rose */
+  letter-spacing: 0.3px;
+}
+
+/* Holding text */
+#hugHint.holding {
+  color: #7a2a3a;
+  animation: softPulse 1.4s infinite;
+}
+
+/* Final message */
+#hugFinal .final-message {
+  color: #4a1e2e; /* strong readable love tone */
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* Subtle pulse */
+@keyframes softPulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.85; }
+  100% { opacity: 1; }
+}
+
+
 @keyframes hugHeartFall {
   from { transform: translateY(0); }
   to   { transform: translateY(110vh); }
