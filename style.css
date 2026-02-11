@@ -406,9 +406,9 @@ body.hug-page {
 
 /* Initial hint text */
 #hugHint {
-  font-size: 18px;
-  font-weight: 600;
-  color: #5a1f2b; /* deep rose */
+  font-size: 19px;
+  font-weight: 600;            /* readable bold */
+  color: #4a1e2e;              /* deep warm maroon */
   letter-spacing: 0.3px;
 }
 
