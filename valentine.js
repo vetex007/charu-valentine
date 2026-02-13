@@ -1,7 +1,3 @@
-/* =====================================================
-   VALENTINE DAY JS
-===================================================== */
-
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 
@@ -11,20 +7,17 @@ const valText = document.getElementById("valText");
 const photoBox = document.getElementById("photoBox");
 const finalBox = document.getElementById("finalBox");
 
-/* ================= NO BUTTON ESCAPE ================= */
-
-noBtn.addEventListener("click", moveNo);
-noBtn.addEventListener("mouseover", moveNo);
-noBtn.addEventListener("touchstart", moveNo);
-
+/* NO BUTTON ESCAPE */
 function moveNo() {
   const x = Math.random() * 160 - 80;
   const y = Math.random() * 120 - 60;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 }
+noBtn.addEventListener("click", moveNo);
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
 
-/* ================= MESSAGES ================= */
-
+/* MESSAGE SEQUENCE */
 const messages = [
   "You are my today ❤️",
   "You are my tomorrow 🌙",
@@ -36,11 +29,9 @@ const messages = [
 
 let msgIndex = 0;
 
-/* ================= YES CLICK ================= */
-
+/* YES CLICK */
 yesBtn.addEventListener("click", () => {
   questionBox.classList.add("hidden");
-
   startLoveRain();
 
   setTimeout(() => {
@@ -49,8 +40,7 @@ yesBtn.addEventListener("click", () => {
   }, 800);
 });
 
-/* ================= MESSAGE SEQUENCE ================= */
-
+/* SHOW MESSAGES ONE BY ONE */
 function showNextMessage() {
   if (msgIndex >= messages.length) {
     setTimeout(showPhotos, 1200);
@@ -58,34 +48,30 @@ function showNextMessage() {
   }
 
   valText.classList.remove("fade-in");
-  void valText.offsetWidth; // force reflow
+  void valText.offsetWidth;
 
   valText.textContent = messages[msgIndex];
   valText.classList.add("fade-in");
 
   msgIndex++;
-
   setTimeout(showNextMessage, 2400);
 }
 
-/* ================= PHOTO ORBIT ================= */
-
+/* PHOTOS */
 function showPhotos() {
   messageBox.classList.add("hidden");
   photoBox.classList.remove("hidden");
 
-  setTimeout(showFinal, 12000); // photos stay 12 sec
+  setTimeout(showFinal, 14000); // 14 sec
 }
 
-/* ================= FINAL ================= */
-
+/* FINAL */
 function showFinal() {
   photoBox.classList.add("hidden");
   finalBox.classList.remove("hidden");
 }
 
-/* ================= FALLING LOVE ================= */
-
+/* FALLING LOVE */
 function startLoveRain() {
   setInterval(() => {
     const heart = document.createElement("div");
