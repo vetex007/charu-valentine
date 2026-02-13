@@ -15,7 +15,6 @@ more of you 💋"
 ];
 
 function startKiss() {
-  const text = document.getElementById("kissText");
   const btn = document.getElementById("kissBtn");
   const music = document.getElementById("kissMusic");
 
@@ -28,35 +27,45 @@ function startKiss() {
     kissStarted = true;
   }
 
-  showNextMessage(text);
+  showMessage(); // start sequence
 }
 
-function showNextMessage(textEl) {
+/* ================= MESSAGE SEQUENCE ================= */
+function showMessage() {
+  const textEl = document.getElementById("kissText");
+
+  if (msgIndex >= messages.length) {
+    showPhoto();
+    return;
+  }
+
   textEl.style.opacity = 0;
 
   setTimeout(() => {
     textEl.innerHTML = messages[msgIndex];
     textEl.style.opacity = 1;
 
-    // Final message → glow + photo
+    // final message glow
     if (msgIndex === messages.length - 1) {
       textEl.classList.add("final-kiss");
-      setTimeout(showPhoto, 1800);
+      setTimeout(showPhoto, 2200);
+    } else {
+      setTimeout(showMessage, 2800); // move to next message
     }
 
     msgIndex++;
   }, 1000);
 }
 
+/* ================= PHOTO REVEAL ================= */
 function showPhoto() {
   const photo = document.getElementById("kissPhoto");
-  photo.src = "images/kiss.jpg";   // ✅ make sure this file exists
+  photo.src = "images/kiss.jpg"; // make sure this exists
   photo.classList.remove("hidden");
   photo.classList.add("fade-in", "kiss-blink");
 }
 
 /* ================= FALLING KISSES ================= */
-
 function startKissRain() {
   setInterval(() => {
     const kiss = document.createElement("div");
@@ -67,5 +76,5 @@ function startKissRain() {
     document.body.appendChild(kiss);
 
     setTimeout(() => kiss.remove(), 12000);
-  }, 1200);
+  }, 1000);
 }
