@@ -525,6 +525,73 @@ body.kiss-page .final-kiss {
   box-shadow: 0 12px 30px rgba(255, 0, 90, 0.35);
 }
 
+/* ================= VALENTINE DAY ================= */
+
+body.valentine-page {
+  background: radial-gradient(circle, #ffb3c6, #ff5d8f);
+}
+
+/* Big Question */
+.big-question {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #6b1f3a;
+}
+
+/* Buttons */
+.val-buttons {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+#noBtn {
+  position: relative;
+}
+
+/* Heart Message Box */
+.heart-box {
+  background: rgba(255,255,255,0.25);
+  padding: 26px;
+  border-radius: 40px 40px 60px 60px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4a1e2e;
+}
+
+/* Photo Orbit */
+.orbit {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: auto;
+}
+
+.center-pic {
+  width: 140px;
+  border-radius: 18px;
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  z-index: 2;
+}
+
+.orbit-pic {
+  width: 80px;
+  border-radius: 14px;
+  position: absolute;
+  animation: orbit 14s linear infinite;
+}
+
+.orbit-pic:nth-child(2) { top: 0; left: 90px; }
+.orbit-pic:nth-child(3) { top: 90px; right: 0; }
+.orbit-pic:nth-child(4) { bottom: 0; left: 90px; }
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(0); }
+  to { transform: rotate(360deg) translateX(0); }
+}
 
 
 
