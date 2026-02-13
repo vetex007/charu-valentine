@@ -524,4 +524,137 @@ body.kiss-page .final-kiss {
   background: linear-gradient(135deg, #ff3366, #ff6f91);
   box-shadow: 0 12px 30px rgba(255, 0, 90, 0.35);
 }
+/* =====================================================
+   VALENTINE DAY — SCOPED ONLY (ADD AT END)
+===================================================== */
+
+body.valentine-page {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  background: radial-gradient(circle at top, #ffb3c6, #ff5d8f);
+  transform: none;              /* important for falling hearts */
+}
+
+/* Big question */
+body.valentine-page .big-question {
+  font-size: 26px;
+  font-weight: 800;             /* bold & readable */
+  color: #6b1f3a;
+  margin-bottom: 18px;
+  letter-spacing: 0.4px;
+}
+
+/* Buttons */
+body.valentine-page button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+/* NO button trick */
+body.valentine-page #noBtn {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+/* Heart message container */
+body.valentine-page .heart-box {
+  background: rgba(255,255,255,0.85);
+  padding: 26px 22px;
+  border-radius: 40px 40px 60px 60px;
+}
+
+/* Message text inside heart */
+body.valentine-page #valText {
+  font-size: 20px;
+  font-weight: 700;             /* bold stylish */
+  color: #4a1e2e;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Fade animation for messages */
+body.valentine-page .fade-in {
+  animation: valFade 0.9s ease forwards;
+}
+
+@keyframes valFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Photo orbit container */
+body.valentine-page .orbit {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: auto;
+  animation: spin 40s linear infinite;
+}
+
+body.valentine-page .center-pic {
+  width: 130px;
+  border-radius: 20px;
+  position: absolute;
+  top: 65px;
+  left: 65px;
+  z-index: 2;
+}
+
+body.valentine-page .orbit img:not(.center-pic) {
+  width: 70px;
+  border-radius: 14px;
+  position: absolute;
+}
+
+body.valentine-page .orbit img:nth-child(2) { top: 0; left: 95px; }
+body.valentine-page .orbit img:nth-child(3) { top: 95px; right: 0; }
+body.valentine-page .orbit img:nth-child(4) { bottom: 0; left: 95px; }
+body.valentine-page .orbit img:nth-child(5) { top: 95px; left: 0; }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Final message */
+body.valentine-page .final-love {
+  font-size: 22px;
+  font-weight: 800;
+  color: #6b1f3a;
+  margin-top: 20px;
+  text-shadow: 0 0 16px rgba(255,255,255,0.4);
+}
+
+/* Falling love */
+body.valentine-page .fall-love {
+  position: fixed;
+  top: -40px;
+  font-size: 20px;
+  pointer-events: none;
+  opacity: 0.7;
+  animation: loveFall linear forwards;
+  z-index: 0;
+}
+
+@keyframes loveFall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+/* Mobile tuning */
+@media (max-width: 480px) {
+  body.valentine-page .big-question {
+    font-size: 24px;
+  }
+
+  body.valentine-page #valText {
+    font-size: 19px;
+  }
+}
 
