@@ -596,6 +596,16 @@ body.valentine-page .orbit {
   animation: spin 40s linear infinite;
 }
 
+body.valentine-page .big-card {
+  width: 100%;
+  max-width: 420px;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
 body.valentine-page .center-pic {
   width: 130px;
   border-radius: 20px;
@@ -612,9 +622,13 @@ body.valentine-page .orbit img:not(.center-pic) {
 }
 
 body.valentine-page .orbit img:nth-child(2) { top: 0; left: 95px; }
-body.valentine-page .orbit img:nth-child(3) { top: 95px; right: 0; }
-body.valentine-page .orbit img:nth-child(4) { bottom: 0; left: 95px; }
-body.valentine-page .orbit img:nth-child(5) { top: 95px; left: 0; }
+body.valentine-page .orbit img:nth-child(3) { top: 30px; right: 15px; }
+body.valentine-page .orbit img:nth-child(4) { top: 95px; right: 0; }
+body.valentine-page .orbit img:nth-child(5) { bottom: 30px; right: 15px; }
+body.valentine-page .orbit img:nth-child(6) { bottom: 0; left: 95px; }
+body.valentine-page .orbit img:nth-child(7) { bottom: 30px; left: 15px; }
+body.valentine-page .orbit img:nth-child(8) { top: 95px; left: 0; }
+
 
 @keyframes spin {
   from { transform: rotate(0deg); }
