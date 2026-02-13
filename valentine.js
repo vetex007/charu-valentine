@@ -1,69 +1,54 @@
+const messages = [
+  "You are my today,<br>and every tomorrow I dream of.",
+  "You are my greatest strength,<br>and my softest weakness.",
+  "You hold the power to make me<br>the happiest soul alive.",
+  "You are my princess,<br>my queen, my forever baby girl.",
+  "You are not just my world…<br>you are my home ❤️"
+];
+
+let msgIndex = 0;
+
 const noBtn = document.getElementById("noBtn");
-const music = document.getElementById("valMusic");
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.transform =
+    `translate(${Math.random()*120-60}px, ${Math.random()*80-40}px)`;
+});
 
-noBtn.addEventListener("mouseenter", moveNo);
-noBtn.addEventListener("click", moveNo);
-
-function moveNo() {
-  const x = Math.random() * 120 - 60;
-  const y = Math.random() * 120 - 60;
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
-}
-
-/* YES CLICK */
 function acceptValentine() {
   document.getElementById("questionBox").classList.add("hidden");
-  document.getElementById("valMessages").classList.remove("hidden");
+  document.getElementById("messageBox").classList.remove("hidden");
 
-  music.volume = 0.5;
+  const music = document.getElementById("valMusic");
+  music.volume = 0.45;
   music.play();
 
   startLoveRain();
-  showMessages();
+  showMessage();
 }
 
-/* Messages */
-const lines = [
-  "From the first smile…",
-  "to every laugh we share…",
-  "you became my favorite place ❤️",
-  "Today isn’t just Valentine’s…",
-  "it’s us 💖"
-];
-
-let i = 0;
-function showMessages() {
+function showMessage() {
   const text = document.getElementById("valText");
-  text.innerHTML = lines[i];
 
-  i++;
-  if (i < lines.length) {
-    setTimeout(showMessages, 3200);
+  if (msgIndex < messages.length) {
+    text.innerHTML = messages[msgIndex];
+    msgIndex++;
+    setTimeout(showMessage, 3500);
   } else {
     setTimeout(() => {
-      document.getElementById("valMessages").classList.add("hidden");
-      document.getElementById("valPhotos").classList.remove("hidden");
-    }, 10000);
+      document.getElementById("messageBox").classList.add("hidden");
+      document.getElementById("photoBox").classList.remove("hidden");
+    }, 6000);
   }
 }
 
-/* Final */
-function finalThanks() {
-  document.getElementById("valPhotos").classList.add("hidden");
-  document.getElementById("finalThanks").classList.remove("hidden");
-}
-
-/* Falling Love */
 function startLoveRain() {
   setInterval(() => {
     const h = document.createElement("div");
+    h.className = "fall-love";
     h.innerHTML = "❤️";
-    h.style.position = "fixed";
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.top = "-40px";
-    h.style.fontSize = "18px";
-    h.style.animation = "fall 8s linear";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.animationDuration = (6 + Math.random()*4) + "s";
     document.body.appendChild(h);
-    setTimeout(() => h.remove(), 8000);
-  }, 700);
+    setTimeout(() => h.remove(), 12000);
+  }, 800);
 }
