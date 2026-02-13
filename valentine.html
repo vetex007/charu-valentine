@@ -1,56 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Be My Valentine ❤️</title>
-
-  <!-- Elegant Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="valentine.css">
-</head>
-
 <body class="valentine-page">
 
-  <!-- Music -->
-  <audio id="valMusic" loop>
-    <source src="music/valentine.mp3" type="audio/mpeg">
-  </audio>
+<div class="big-card">
 
-  <!-- QUESTION -->
-  <div id="questionBox" class="card big-card">
-    <h1 class="val-title">Will you be my Valentine? ❤️</h1>
+  <div id="questionBox">
+    <p class="big-question">Will you be my Valentine? ❤️</p>
 
-    <div class="btn-row">
-      <button id="yesBtn" onclick="acceptValentine()">Yes 💖</button>
-      <button id="noBtn">No 😈</button>
+    <div class="val-buttons">
+      <button id="yesBtn">Yes 💖</button>
+      <button id="noBtn">No 🙈</button>
     </div>
   </div>
 
-  <!-- MESSAGE -->
   <div id="messageBox" class="hidden">
-    <div class="heart-container">
+    <div class="heart-box">
       <p id="valText"></p>
     </div>
   </div>
 
-  <!-- PHOTOS -->
   <div id="photoBox" class="hidden">
     <div class="orbit">
       <img src="images/center.jpg" class="center-pic">
-
-      <img src="images/11.jpg">
-      <img src="images/21.jpg">
-      <img src="images/31.jpg">
-      <img src="images/41.jpg">
-      <img src="images/51.jpg">
-      <img src="images/61.jpg">
-      <img src="images/71.jpg">
+      <img src="images/1.jpg">
+      <img src="images/2.jpg">
+      <img src="images/3.jpg">
+      <img src="images/4.jpg">
+      <img src="images/5.jpg">
+      <img src="images/6.jpg">
+      <img src="images/7.jpg">
     </div>
-
-    <button class="final-btn">Be mine forever 💘</button>
   </div>
 
-  <script src="valentine.js"></script>
+  <div id="finalBox" class="hidden">
+    <p class="final-love">Be mine forever ❤️</p>
+    <button class="final-btn">Happy Valentine’s Day 💘</button>
+  </div>
+
+</div>
+
+<script src="valentine.js"></script>
 </body>
-</html>
