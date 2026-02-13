@@ -2,8 +2,16 @@ let kissStarted = false;
 let msgIndex = 0;
 
 const messages = [
-  "A kiss isn’t just a touch…<br>it’s a feeling 💋",
-  "If I could right now,<br>I’d pull you close,<br>look into your eyes…<br>and kiss you softly ❤️"
+  "Your kiss feels like sweetness itself…<br>\
+like honey melting slowly on my lips 💋",
+
+  "It flows so gently, so beautifully,<br>\
+that I become like a bee —<br>\
+drawn to it, tasting every moment… 🐝❤️",
+
+  "And even after taking it all in,<br>\
+I still want more of it…<br>\
+more of you 💋"
 ];
 
 function startKiss() {
@@ -30,10 +38,10 @@ function showNextMessage(textEl) {
     textEl.innerHTML = messages[msgIndex];
     textEl.style.opacity = 1;
 
-    // Show photo after final message
+    // Final message → glow + photo
     if (msgIndex === messages.length - 1) {
-      setTimeout(showPhoto, 1800);
       textEl.classList.add("final-kiss");
+      setTimeout(showPhoto, 1800);
     }
 
     msgIndex++;
@@ -42,12 +50,13 @@ function showNextMessage(textEl) {
 
 function showPhoto() {
   const photo = document.getElementById("kissPhoto");
-  photo.src = "images/kiss.jpg";
+  photo.src = "images/kiss.jpg";   // ✅ make sure this file exists
   photo.classList.remove("hidden");
-  photo.classList.add("fade-in");
+  photo.classList.add("fade-in", "kiss-blink");
 }
 
-/* Falling kisses */
+/* ================= FALLING KISSES ================= */
+
 function startKissRain() {
   setInterval(() => {
     const kiss = document.createElement("div");
