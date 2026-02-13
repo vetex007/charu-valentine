@@ -50,7 +50,7 @@ function showMessage() {
       textEl.classList.add("final-kiss");
       setTimeout(showPhoto, 2200);
     } else {
-      setTimeout(showMessage, 2800); // move to next message
+      setTimeout(showMessage, 6800); // move to next message
     }
 
     msgIndex++;
