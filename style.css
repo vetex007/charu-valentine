@@ -443,19 +443,21 @@ body.kiss-page #kissText {
   color: #4a1e2e;
   font-size: 19px;
   font-weight: 600;
-  line-height: 1.7;
+  line-height: 1.75;
   transition: opacity 1s ease;
 }
 
+/* Button */
 body.kiss-page #kissBtn {
   margin-top: 14px;
 }
 
-/* Falling kisses */
+/* ================= FALLING KISSES ================= */
+
 .kiss-fall {
   position: fixed;
   top: -40px;
-  font-size: 20px;
+  font-size: 22px;
   opacity: 0.7;
   pointer-events: none;
   animation: kissFall linear forwards;
@@ -471,15 +473,48 @@ body.kiss-page #kissBtn {
   }
 }
 
-/* Final soft glow */
+/* ================= FINAL TEXT GLOW ================= */
+
 body.kiss-page .final-kiss {
   font-size: 21px;
   color: #6b1f3a;
-  animation: kissGlow 2s ease-in-out infinite;
+  animation: kissGlow 2.2s ease-in-out infinite;
 }
 
 @keyframes kissGlow {
   0% { text-shadow: none; }
-  50% { text-shadow: 0 0 14px rgba(255,255,255,0.35); }
+  50% { text-shadow: 0 0 16px rgba(255,255,255,0.35); }
   100% { text-shadow: none; }
 }
+
+/* ================= PHOTO FADE + KISS BLINK ================= */
+
+.fade-in {
+  animation: fadeInPhoto 1.4s ease forwards;
+}
+
+@keyframes fadeInPhoto {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Gentle kiss blink */
+.kiss-blink {
+  animation: kissBlink 2.8s infinite;
+}
+
+@keyframes kissBlink {
+  0% { opacity: 1; }
+  45% { opacity: 0.85; }
+  50% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+
+
