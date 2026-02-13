@@ -48,9 +48,9 @@ function showMessage() {
     // final message glow
     if (msgIndex === messages.length - 1) {
       textEl.classList.add("final-kiss");
-      setTimeout(showPhoto, 2200);
+      setTimeout(showPhoto, 4500);
     } else {
-      setTimeout(showMessage, 6800); // move to next message
+      setTimeout(showMessage, 9800); // move to next message
     }
 
     msgIndex++;
