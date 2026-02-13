@@ -2,55 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For Charu ❤️</title>
-  <link rel="stylesheet" href="style.css?v=final">
+  <title>Be My Valentine ❤️</title>
+
+  <!-- Elegant Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="valentine.css">
 </head>
 
 <body class="valentine-page">
 
-<audio id="valMusic" loop>
-  <source src="music/valentine.mp3" type="audio/mpeg">
-</audio>
+  <!-- Music -->
+  <audio id="valMusic" loop>
+    <source src="music/valentine.mp3" type="audio/mpeg">
+  </audio>
 
-<div class="card val-card" id="questionBox">
-  <h2 class="big-question">Will you be my Valentine? ❤️</h2>
+  <!-- QUESTION -->
+  <div id="questionBox" class="card big-card">
+    <h1 class="val-title">Will you be my Valentine? ❤️</h1>
 
-  <div class="val-buttons">
-    <button onclick="acceptValentine()">Yes 💖</button>
-    <button id="noBtn">No 🙈</button>
-  </div>
-</div>
-
-<!-- MESSAGES -->
-<div class="card hidden" id="valMessages">
-  <div class="heart-box">
-    <p id="valText"></p>
-  </div>
-</div>
-
-<!-- PHOTOS -->
-<div class="card hidden" id="valPhotos">
-  <div class="orbit">
-    <img src="images/v1.jpg" class="center-pic">
-    <img src="images/v2.jpg" class="orbit-pic">
-    <img src="images/v3.jpg" class="orbit-pic">
-    <img src="images/v4.jpg" class="orbit-pic">
+    <div class="btn-row">
+      <button id="yesBtn" onclick="acceptValentine()">Yes 💖</button>
+      <button id="noBtn">No 😈</button>
+    </div>
   </div>
 
-  <button onclick="finalThanks()" class="next-day-btn">
-    Be mine forever ❤️
-  </button>
-</div>
+  <!-- MESSAGE -->
+  <div id="messageBox" class="hidden">
+    <div class="heart-container">
+      <p id="valText"></p>
+    </div>
+  </div>
 
-<div class="card hidden" id="finalThanks">
-  <h2>Thank you for being my Valentine ❤️</h2>
-  <p class="final-message">
-    Be like this…  
-    be mine…  
-    today, tomorrow, and forever 💖
-  </p>
-</div>
+  <!-- PHOTOS -->
+  <div id="photoBox" class="hidden">
+    <div class="orbit">
+      <img src="images/center.jpg" class="center-pic">
 
-<script src="valentine.js"></script>
+      <img src="images/11.jpg">
+      <img src="images/21.jpg">
+      <img src="images/31.jpg">
+      <img src="images/41.jpg">
+      <img src="images/51.jpg">
+      <img src="images/61.jpg">
+      <img src="images/71.jpg">
+    </div>
+
+    <button class="final-btn">Be mine forever 💘</button>
+  </div>
+
+  <script src="valentine.js"></script>
 </body>
 </html>
