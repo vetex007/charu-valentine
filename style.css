@@ -525,22 +525,40 @@ body.kiss-page .final-kiss {
   box-shadow: 0 12px 30px rgba(255, 0, 90, 0.35);
 }
 /* =====================================================
-   VALENTINE DAY — SCOPED ONLY (ADD AT END)
+   VALENTINE DAY — FINAL CLEAN VERSION
 ===================================================== */
 
 body.valentine-page {
   font-family: 'Playfair Display', 'Georgia', serif;
-  background: radial-gradient(circle at top, #ffb3c6, #ff5d8f);
-  transform: none;              /* important for falling hearts */
+  background: linear-gradient(180deg, #ffb6c9, #ff5f8f);
+  animation: bgFlow 20s ease-in-out infinite;
+  transform: none;
+  overflow: hidden;
 }
 
-/* Big question */
+/* Background slow movement */
+@keyframes bgFlow {
+  0% { background-position: 50% 0%; }
+  50% { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
+/* Card */
+body.valentine-page .big-card {
+  width: 100%;
+  max-width: 420px;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Question */
 body.valentine-page .big-question {
   font-size: 26px;
-  font-weight: 800;             /* bold & readable */
+  font-weight: 800;
   color: #6b1f3a;
-  margin-bottom: 18px;
-  letter-spacing: 0.4px;
+  margin-bottom: 20px;
 }
 
 /* Buttons */
@@ -549,181 +567,56 @@ body.valentine-page button {
   font-weight: 700;
 }
 
-/* NO button trick */
+/* No button escape */
 body.valentine-page #noBtn {
   position: relative;
-  transition: transform 0.2s ease;
 }
 
-/* Heart message container */
+/* Heart message */
 body.valentine-page .heart-box {
-  background: rgba(255,255,255,0.85);
-  padding: 26px 22px;
-  border-radius: 40px 40px 60px 60px;
+  background: rgba(255,255,255,0.9);
+  padding: 28px 24px;
+  border-radius: 50px;
 }
 
-/* Message text inside heart */
 body.valentine-page #valText {
-  font-size: 20px;
-  font-weight: 700;             /* bold stylish */
+  font-size: 21px;
+  font-weight: 700;
   color: #4a1e2e;
-  line-height: 1.7;
+  line-height: 1.8;
   text-align: center;
 }
 
-/* Fade animation for messages */
-body.valentine-page .fade-in {
-  animation: valFade 0.9s ease forwards;
+/* Fade */
+.fade-in {
+  animation: fadeUp 1s ease forwards;
 }
 
-@keyframes valFade {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Photo orbit container */
+/* ================= PHOTOS ================= */
+
 body.valentine-page .orbit {
-  position: relative;
-  width: 260px;
-  height: 260px;
+  width: 92vw;
+  max-width: 380px;
+  height: 380px;
   margin: auto;
-  animation: spin 40s linear infinite;
+  position: relative;
+  animation: spin 60s linear infinite;
 }
-
-body.valentine-page .big-card {
-  width: 100%;
-  max-width: 420px;
-  min-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-body.valentine-page .center-pic {
-  width: 130px;
-  border-radius: 20px;
-  position: absolute;
-  top: 65px;
-  left: 65px;
-  z-index: 2;
-}
-
-body.valentine-page .orbit img:not(.center-pic) {
-  width: 70px;
-  border-radius: 14px;
-  position: absolute;
-}
-
-body.valentine-page .orbit img:nth-child(2) { top: 0; left: 95px; }
-body.valentine-page .orbit img:nth-child(3) { top: 30px; right: 15px; }
-body.valentine-page .orbit img:nth-child(4) { top: 95px; right: 0; }
-body.valentine-page .orbit img:nth-child(5) { bottom: 30px; right: 15px; }
-body.valentine-page .orbit img:nth-child(6) { bottom: 0; left: 95px; }
-body.valentine-page .orbit img:nth-child(7) { bottom: 30px; left: 15px; }
-body.valentine-page .orbit img:nth-child(8) { top: 95px; left: 0; }
-
 
 @keyframes spin {
   from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-/* Final message */
-body.valentine-page .final-love {
-  font-size: 22px;
-  font-weight: 800;
-  color: #6b1f3a;
-  margin-top: 20px;
-  text-shadow: 0 0 16px rgba(255,255,255,0.4);
-}
-
-/* Falling love */
-body.valentine-page .fall-love {
-  position: fixed;
-  top: -40px;
-  font-size: 20px;
-  pointer-events: none;
-  opacity: 0.7;
-  animation: loveFall linear forwards;
-  z-index: 0;
-}
-
-@keyframes loveFall {
-  to {
-    transform: translateY(110vh);
-  }
-}
-
-/* Mobile tuning */
-@media (max-width: 480px) {
-  body.valentine-page .big-question {
-    font-size: 24px;
-  }
-
-  body.valentine-page #valText {
-    font-size: 19px;
-  }
-}
-
-/* ================= VALENTINE FINAL MOMENT ================= */
-
-/* Dim background on final */
-body.valentine-page.final-moment {
-  background: radial-gradient(circle at center, #ff8fab, #b5173f);
-  transition: background 2s ease;
-}
-
-/* Final text spotlight */
-body.valentine-page .final-love {
-  font-family: 'Playfair Display', 'Georgia', serif;
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-  color: #ffffff;
-  text-align: center;
-  margin-top: 24px;
-  animation: finalPulse 3s ease-in-out infinite;
-}
-
-/* Soft glowing pulse */
-@keyframes finalPulse {
-  0%   { text-shadow: 0 0 10px rgba(255,255,255,0.4); }
-  50%  { text-shadow: 0 0 22px rgba(255,255,255,0.9); }
-  100% { text-shadow: 0 0 10px rgba(255,255,255,0.4); }
-}
-
-/* Stop interactions */
-body.valentine-page.final-moment button {
-  display: none;
-}
-
-/* Slow falling hearts in final */
-body.valentine-page.final-moment .fall-love {
-  animation-duration: 12s !important;
-  opacity: 0.5;
-}
-
-/* ================= VALENTINE PHOTO FIX (MOBILE FIRST) ================= */
-
-body.valentine-page .orbit {
-  width: 100vw;
-  max-width: 360px;
-  height: 360px;
-  margin: 0 auto;
-  position: relative;
+  to { transform: rotate(360deg); }
 }
 
 body.valentine-page .center-pic {
-  width: 140px;
-  height: 140px;
-  border-radius: 22px;
+  width: 170px;
+  height: 170px;
+  border-radius: 24px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -731,13 +624,11 @@ body.valentine-page .center-pic {
   z-index: 3;
 }
 
-/* Orbiting photos */
 body.valentine-page .orbit img:not(.center-pic) {
-  width: 80px;
-  height: 80px;
-  border-radius: 18px;
+  width: 85px;
+  height: 85px;
+  border-radius: 20px;
   position: absolute;
-  animation: orbitMove 18s linear infinite;
 }
 
 /* Positions */
@@ -746,102 +637,39 @@ body.valentine-page .orbit img:nth-child(3) { right: 0; top: 50%; transform: tra
 body.valentine-page .orbit img:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%); }
 body.valentine-page .orbit img:nth-child(5) { left: 0; top: 50%; transform: translateY(-50%); }
 
-@keyframes orbitMove {
-  from { transform: rotate(0deg) translateX(0); }
-  to   { transform: rotate(360deg) translateX(0); }
+/* ================= FINAL ================= */
+
+body.valentine-page.final-moment {
+  background: radial-gradient(circle, #b5173f, #2b0a14);
+  transition: background 2s ease;
 }
 
-/* =====================================================
-   VALENTINE DAY — FINAL POLISH (ADD AT END ONLY)
-===================================================== */
-
-body.valentine-page {
-  font-family: 'Playfair Display', 'Georgia', serif;
-  background: linear-gradient(180deg, #ffb3c6, #ff5d8f);
-  animation: bgFlow 18s ease-in-out infinite;
-  transform: none;
-}
-
-/* Subtle background movement with music */
-@keyframes bgFlow {
-  0%   { background-position: 50% 0%; }
-  50%  { background-position: 50% 100%; }
-  100% { background-position: 50% 0%; }
-}
-
-/* Question */
-body.valentine-page .big-question {
-  font-size: 26px;
-  font-weight: 800;
-  color: #6b1f3a;
-}
-
-/* Messages */
-body.valentine-page #valText {
-  font-size: 20px;
-  font-weight: 700;
-  color: #4a1e2e;
-  line-height: 1.8;
-}
-
-/* Heart message box */
-body.valentine-page .heart-box {
-  background: rgba(255,255,255,0.9);
-  padding: 28px 24px;
-  border-radius: 50px;
-}
-
-/* Photos — BIGGER & MOBILE WIDTH */
-body.valentine-page .orbit {
-  width: 92vw;
-  max-width: 360px;
-  height: 360px;
-  margin: auto;
-}
-
-body.valentine-page .center-pic {
-  width: 160px;
-  height: 160px;
-  border-radius: 22px;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Orbit photos */
-body.valentine-page .orbit img:not(.center-pic) {
-  width: 80px;
-  height: 80px;
-  border-radius: 18px;
-}
-
-/* FINAL HEART */
 body.valentine-page .final-love {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 800;
-  color: #6b1f3a;
+  color: #ffffff;
   text-align: center;
   animation: heartBeat 1.6s infinite;
 }
 
 /* Heart beat */
 @keyframes heartBeat {
-  0%   { transform: scale(1); }
-  25%  { transform: scale(1.08); }
-  50%  { transform: scale(1); }
-  75%  { transform: scale(1.06); }
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.08); }
   100% { transform: scale(1); }
 }
 
-/* Final heart container */
+/* Heart shape */
 body.valentine-page #finalBox .heart-box {
   clip-path: path(
-    "M150 270 C-40 140 60 -40 150 50 C240 -40 340 140 150 270 Z"
+    "M150 280 C-40 140 60 -40 150 60 C240 -40 340 140 150 280 Z"
   );
-  padding: 50px 30px;
+  padding: 60px 34px;
 }
 
-/* Falling love */
+/* Falling hearts */
 body.valentine-page .fall-love {
   position: fixed;
   top: -40px;
