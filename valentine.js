@@ -36,7 +36,11 @@ const messageLines = [
 
   "You are my princess,",
   "my queen in every lifetime,",
-  "my forever baby girl."
+  "my forever baby girl.",
+
+  " You are not just my world…",
+"you are the reason my heart knows what home feels like,",
+"now, always, and forever. 💫"
 ];
 
 let msgIndex = 0;
