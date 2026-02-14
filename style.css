@@ -709,3 +709,45 @@ body.valentine-page.final-moment .fall-love {
   animation-duration: 12s !important;
   opacity: 0.5;
 }
+
+/* ================= VALENTINE PHOTO FIX (MOBILE FIRST) ================= */
+
+body.valentine-page .orbit {
+  width: 100vw;
+  max-width: 360px;
+  height: 360px;
+  margin: 0 auto;
+  position: relative;
+}
+
+body.valentine-page .center-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 22px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+/* Orbiting photos */
+body.valentine-page .orbit img:not(.center-pic) {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  position: absolute;
+  animation: orbitMove 18s linear infinite;
+}
+
+/* Positions */
+body.valentine-page .orbit img:nth-child(2) { top: 0; left: 50%; transform: translateX(-50%); }
+body.valentine-page .orbit img:nth-child(3) { right: 0; top: 50%; transform: translateY(-50%); }
+body.valentine-page .orbit img:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%); }
+body.valentine-page .orbit img:nth-child(5) { left: 0; top: 50%; transform: translateY(-50%); }
+
+@keyframes orbitMove {
+  from { transform: rotate(0deg) translateX(0); }
+  to   { transform: rotate(360deg) translateX(0); }
+}
+
