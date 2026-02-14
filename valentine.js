@@ -11,23 +11,35 @@ const music = document.getElementById("valMusic");
 
 /* NO BUTTON ESCAPE */
 function moveNo() {
-  const x = Math.random() * 160 - 80;
-  const y = Math.random() * 120 - 60;
+  const x = Math.random() * 180 - 90;
+  const y = Math.random() * 140 - 70;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 }
 noBtn.addEventListener("click", moveNo);
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("touchstart", moveNo);
 
-/* MESSAGE SEQUENCE */
+/* Messages */
 const messages = [
-  "You are my today ❤️",
-  "You are my tomorrow 🌙",
-  "You are my biggest strength 💪",
-  "And my sweetest weakness 🥹",
-  "You hold the power to make me the happiest soul alive ✨",
-  "My princess, my queen, my forever 💖"
+  `You are my today,
+and every tomorrow I dream of. ❤️<br><br>
+
+You are my greatest strength,
+and the gentlest place where I allow myself to be weak 
+because only you hold the power
+to make me the happiest soul alive,
+or the quietest when you’re not near.<br><br>
+
+You are my princess,
+my queen in every lifetime,
+my forever baby girl.<br><br>
+
+You are not just my world…
+you are the reason my heart knows
+what home feels like —
+now, always, and forever. 💫`
 ];
+
 
 let index = 0;
 
@@ -35,7 +47,6 @@ let index = 0;
 yesBtn.addEventListener("click", () => {
   questionBox.classList.add("hidden");
 
-  // Start music gently
   music.volume = 0;
   music.play();
   fadeMusicIn();
@@ -48,58 +59,61 @@ yesBtn.addEventListener("click", () => {
   }, 800);
 });
 
-/* MUSIC FADE IN */
+/* Music fade in */
 function fadeMusicIn() {
-  let vol = 0;
-  const interval = setInterval(() => {
-    vol += 0.02;
-    if (vol >= 0.6) {
-      music.volume = 0.6;
-      clearInterval(interval);
-    } else {
-      music.volume = vol;
-    }
+  let v = 0;
+  const i = setInterval(() => {
+    v += 0.02;
+    music.volume = v;
+    if (v >= 0.6) clearInterval(i);
   }, 200);
 }
 
-/* SHOW MESSAGES ONE BY ONE */
+/* Show messages */
 function showMessage() {
   if (index >= messages.length) {
-    setTimeout(showPhotos, 1200);
+    showPhotos();
     return;
   }
 
   valText.textContent = messages[index];
+  valText.classList.remove("fade-in");
+  void valText.offsetWidth;
   valText.classList.add("fade-in");
 
   index++;
-  setTimeout(showMessage, 5500); // 5.5 sec per message
+  setTimeout(showMessage, 5500);
 }
 
-/* SHOW PHOTOS */
+/* Photos stay until button */
 function showPhotos() {
   messageBox.classList.add("hidden");
   photoBox.classList.remove("hidden");
 
-  setTimeout(showFinal, 12000);
+  const btn = document.createElement("button");
+  btn.textContent = "Be mine ❤️";
+  btn.className = "final-btn";
+  btn.onclick = showFinal;
+
+  photoBox.appendChild(btn);
 }
 
-/* FINAL */
+/* Final */
 function showFinal() {
+  document.body.classList.add("final-moment");
   photoBox.classList.add("hidden");
   finalBox.classList.remove("hidden");
 }
 
-/* FALLING LOVE */
+/* Falling hearts */
 function startLoveRain() {
   setInterval(() => {
-    const el = document.createElement("div");
-    el.className = "fall-love";
-    el.innerHTML = Math.random() > 0.5 ? "❤️" : "🌹";
-    el.style.left = Math.random() * 100 + "vw";
-    el.style.animationDuration = 6 + Math.random() * 4 + "s";
-    document.body.appendChild(el);
-
-    setTimeout(() => el.remove(), 12000);
-  }, 700);
+    const h = document.createElement("div");
+    h.className = "fall-love";
+    h.innerHTML = Math.random() > 0.5 ? "❤️" : "🌹";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = 8 + Math.random() * 6 + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 14000);
+  }, 900);
 }
