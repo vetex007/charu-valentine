@@ -119,9 +119,11 @@ function showFinal() {
 
   finalBox.classList.remove("hidden");
 
-  // ONE LINE ONLY
-  finalText.innerHTML = "Be mine forever ❤️";
+  // Final heart text
+ finalText.innerHTML = "Be mine forever<br>for every lifetime ❤️";
+
 }
+
 
 /* ================= FALLING HEARTS ================= */
 
