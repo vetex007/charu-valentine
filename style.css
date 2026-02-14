@@ -654,7 +654,8 @@ body.valentine-page.final-moment {
   transition: background 2.8s ease;
 }
 
-/* ================= FINAL HEART (FIXED FOREVER) ================= */
+/* ================= FINAL HEART (MOBILE SAFE) ================= */
+
 body.valentine-page #finalBox {
   position: fixed;
   inset: 0;
@@ -664,30 +665,45 @@ body.valentine-page #finalBox {
   z-index: 5;
 }
 
-body.valentine-page .final-heart {
-  width: 82vw;
-  max-width: 320px;
-  aspect-ratio: 1 / 1;
-  background: #ffffff;
+/* Heart base */
+.final-heart {
   position: relative;
-
-  clip-path: path(
-    "M50 15
-     C35 -5, 0 10, 0 37
-     C0 65, 25 85, 50 100
-     C75 85, 100 65, 100 37
-     C100 10, 65 -5, 50 15 Z"
-  );
-
+  width: 260px;
+  height: 230px;
+  background: #ffffff;
+  transform: rotate(-45deg);
+  animation: heartBeat 1.8s infinite;
   box-shadow:
     0 0 30px rgba(255,255,255,0.5),
     0 0 60px rgba(255,255,255,0.4);
-
-  animation: heartBeat 1.8s infinite;
 }
 
-/* Heart text */
-body.valentine-page .final-heart-text {
+/* Left circle */
+.final-heart::before,
+.final-heart::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 230px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+/* Top left */
+.final-heart::before {
+  top: -115px;
+  left: 0;
+}
+
+/* Top right */
+.final-heart::after {
+  left: 115px;
+  top: 0;
+}
+
+/* ================= HEART TEXT ================= */
+
+.final-heart-text {
   position: absolute;
   inset: 0;
 
@@ -696,7 +712,10 @@ body.valentine-page .final-heart-text {
   justify-content: center;
   text-align: center;
 
-  padding: 26px;
+  transform: rotate(45deg);
+
+  padding: 24px;
+  width: 100%;
 
   font-family: 'Great Vibes', cursive;
   font-size: 26px;
@@ -708,11 +727,11 @@ body.valentine-page .final-heart-text {
 
 /* Heart beat */
 @keyframes heartBeat {
-  0%   { transform: scale(1); }
-  25%  { transform: scale(1.08); }
-  50%  { transform: scale(1); }
-  75%  { transform: scale(1.06); }
-  100% { transform: scale(1); }
+  0%   { transform: rotate(-45deg) scale(1); }
+  25%  { transform: rotate(-45deg) scale(1.08); }
+  50%  { transform: rotate(-45deg) scale(1); }
+  75%  { transform: rotate(-45deg) scale(1.06); }
+  100% { transform: rotate(-45deg) scale(1); }
 }
 
 /* ================= FALLING LOVE ================= */
