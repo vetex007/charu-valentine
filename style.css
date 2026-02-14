@@ -525,18 +525,18 @@ body.kiss-page .final-kiss {
   box-shadow: 0 12px 30px rgba(255, 0, 90, 0.35);
 }
 /* =====================================================
-   VALENTINE DAY — FINAL CLEAN VERSION
+   VALENTINE DAY — TYPOGRAPHY & ELEGANCE FIX
 ===================================================== */
 
 body.valentine-page {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  font-family: 'Montserrat', sans-serif;
   background: linear-gradient(180deg, #ffb6c9, #ff5f8f);
-  animation: bgFlow 20s ease-in-out infinite;
+  animation: bgFlow 18s ease-in-out infinite;
   transform: none;
   overflow: hidden;
 }
 
-/* Background slow movement */
+/* Background movement */
 @keyframes bgFlow {
   0% { background-position: 50% 0%; }
   50% { background-position: 50% 100%; }
@@ -553,47 +553,53 @@ body.valentine-page .big-card {
   justify-content: center;
 }
 
-/* Question */
+/* ================= QUESTION ================= */
+
 body.valentine-page .big-question {
-  font-size: 26px;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
   font-weight: 800;
   color: #6b1f3a;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  letter-spacing: 0.6px;
 }
 
 /* Buttons */
 body.valentine-page button {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-/* No button escape */
+/* No button */
 body.valentine-page #noBtn {
   position: relative;
 }
 
-/* Heart message */
+/* ================= MESSAGE ================= */
+
 body.valentine-page .heart-box {
-  background: rgba(255,255,255,0.9);
-  padding: 28px 24px;
-  border-radius: 50px;
+  background: rgba(255,255,255,0.94);
+  padding: 30px 26px;
+  border-radius: 52px;
 }
 
 body.valentine-page #valText {
-  font-size: 21px;
-  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
   color: #4a1e2e;
-  line-height: 1.8;
+  line-height: 1.9;
   text-align: center;
 }
 
-/* Fade */
+/* Fade animation */
 .fade-in {
   animation: fadeUp 1s ease forwards;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -605,7 +611,7 @@ body.valentine-page .orbit {
   height: 380px;
   margin: auto;
   position: relative;
-  animation: spin 60s linear infinite;
+  animation: spin 70s linear infinite;
 }
 
 @keyframes spin {
@@ -614,9 +620,9 @@ body.valentine-page .orbit {
 }
 
 body.valentine-page .center-pic {
-  width: 170px;
-  height: 170px;
-  border-radius: 24px;
+  width: 180px;
+  height: 180px;
+  border-radius: 26px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -625,9 +631,9 @@ body.valentine-page .center-pic {
 }
 
 body.valentine-page .orbit img:not(.center-pic) {
-  width: 85px;
-  height: 85px;
-  border-radius: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 22px;
   position: absolute;
 }
 
@@ -637,47 +643,44 @@ body.valentine-page .orbit img:nth-child(3) { right: 0; top: 50%; transform: tra
 body.valentine-page .orbit img:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%); }
 body.valentine-page .orbit img:nth-child(5) { left: 0; top: 50%; transform: translateY(-50%); }
 
-/* ================= FINAL ================= */
+/* ================= FINAL MOMENT ================= */
 
 body.valentine-page.final-moment {
-  background: radial-gradient(circle, #b5173f, #2b0a14);
-  transition: background 2s ease;
+  background: radial-gradient(circle, #b5173f, #1a060c);
+  transition: background 2.5s ease;
 }
 
-body.valentine-page .final-love {
-  font-size: 28px;
-  font-weight: 800;
-  color: #ffffff;
-  text-align: center;
-  animation: heartBeat 1.6s infinite;
+/* Proper heart */
+body.valentine-page #finalBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Heart beat */
-@keyframes heartBeat {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.1); }
-  50% { transform: scale(1); }
-  75% { transform: scale(1.08); }
-  100% { transform: scale(1); }
+.final-heart {
+  position: relative;
+  width: 280px;
+  height: 260px;
+  background: #fff;
+  transform: rotate(-45deg);
+  animation: heartBeat 1.8s infinite;
+  box-shadow: 0 0 40px rgba(255,255,255,0.6);
 }
 
-/* Heart shape */
-body.valentine-page #finalBox .heart-box {
-  clip-path: path(
-    "M150 280 C-40 140 60 -40 150 60 C240 -40 340 140 150 280 Z"
-  );
-  padding: 60px 34px;
+.final-heart::before,
+.final-heart::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 260px;
+  background: #fff;
+  border-radius: 50%;
 }
 
-/* Falling hearts */
-body.valentine-page .fall-love {
-  position: fixed;
-  top: -40px;
-  font-size: 22px;
-  opacity: 0.7;
-  animation: loveFall linear forwards;
-}
-/* Text inside final heart */
+.final-heart::before { top: -140px; left: 0; }
+.final-heart::after { left: 140px; top: 0; }
+
+/* Final text */
 .final-heart-text {
   position: absolute;
   top: 50%;
@@ -685,14 +688,30 @@ body.valentine-page .fall-love {
   transform: rotate(45deg) translate(-50%, -50%);
   width: 85%;
   text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 700;
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+  font-weight: 600;
   line-height: 1.6;
   color: #6b1f3a;
-  text-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
 
+/* Heart beat */
+@keyframes heartBeat {
+  0% { transform: rotate(-45deg) scale(1); }
+  25% { transform: rotate(-45deg) scale(1.08); }
+  50% { transform: rotate(-45deg) scale(1); }
+  75% { transform: rotate(-45deg) scale(1.05); }
+  100% { transform: rotate(-45deg) scale(1); }
+}
+
+/* Falling love */
+body.valentine-page .fall-love {
+  position: fixed;
+  top: -40px;
+  font-size: 22px;
+  opacity: 0.65;
+  animation: loveFall linear forwards;
+}
 
 @keyframes loveFall {
   to { transform: translateY(110vh); }
