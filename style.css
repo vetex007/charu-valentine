@@ -751,3 +751,105 @@ body.valentine-page .orbit img:nth-child(5) { left: 0; top: 50%; transform: tran
   to   { transform: rotate(360deg) translateX(0); }
 }
 
+/* =====================================================
+   VALENTINE DAY — FINAL POLISH (ADD AT END ONLY)
+===================================================== */
+
+body.valentine-page {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  background: linear-gradient(180deg, #ffb3c6, #ff5d8f);
+  animation: bgFlow 18s ease-in-out infinite;
+  transform: none;
+}
+
+/* Subtle background movement with music */
+@keyframes bgFlow {
+  0%   { background-position: 50% 0%; }
+  50%  { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
+/* Question */
+body.valentine-page .big-question {
+  font-size: 26px;
+  font-weight: 800;
+  color: #6b1f3a;
+}
+
+/* Messages */
+body.valentine-page #valText {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4a1e2e;
+  line-height: 1.8;
+}
+
+/* Heart message box */
+body.valentine-page .heart-box {
+  background: rgba(255,255,255,0.9);
+  padding: 28px 24px;
+  border-radius: 50px;
+}
+
+/* Photos — BIGGER & MOBILE WIDTH */
+body.valentine-page .orbit {
+  width: 92vw;
+  max-width: 360px;
+  height: 360px;
+  margin: auto;
+}
+
+body.valentine-page .center-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 22px;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Orbit photos */
+body.valentine-page .orbit img:not(.center-pic) {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+}
+
+/* FINAL HEART */
+body.valentine-page .final-love {
+  font-size: 24px;
+  font-weight: 800;
+  color: #6b1f3a;
+  text-align: center;
+  animation: heartBeat 1.6s infinite;
+}
+
+/* Heart beat */
+@keyframes heartBeat {
+  0%   { transform: scale(1); }
+  25%  { transform: scale(1.08); }
+  50%  { transform: scale(1); }
+  75%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* Final heart container */
+body.valentine-page #finalBox .heart-box {
+  clip-path: path(
+    "M150 270 C-40 140 60 -40 150 50 C240 -40 340 140 150 270 Z"
+  );
+  padding: 50px 30px;
+}
+
+/* Falling love */
+body.valentine-page .fall-love {
+  position: fixed;
+  top: -40px;
+  font-size: 22px;
+  opacity: 0.7;
+  animation: loveFall linear forwards;
+}
+
+@keyframes loveFall {
+  to { transform: translateY(110vh); }
+}
