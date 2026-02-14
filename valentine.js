@@ -9,7 +9,7 @@ const finalBox = document.getElementById("finalBox");
 
 const music = document.getElementById("valMusic");
 
-/* NO BUTTON ESCAPE */
+/* ================= NO BUTTON ESCAPE ================= */
 function moveNo() {
   const x = Math.random() * 180 - 90;
   const y = Math.random() * 140 - 70;
@@ -19,13 +19,13 @@ noBtn.addEventListener("click", moveNo);
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("touchstart", moveNo);
 
-/* Messages */
-const messages = [
-  `You are my today,
+/* ================= POETIC MESSAGE ================= */
+const message = `
+You are my today,
 and every tomorrow I dream of. ❤️<br><br>
 
 You are my greatest strength,
-and the gentlest place where I allow myself to be weak 
+and the gentlest place where I allow myself to be weak —
 because only you hold the power
 to make me the happiest soul alive,
 or the quietest when you’re not near.<br><br>
@@ -37,83 +37,81 @@ my forever baby girl.<br><br>
 You are not just my world…
 you are the reason my heart knows
 what home feels like —
-now, always, and forever. 💫`
-];
+now, always, and forever. 💫
+`;
 
-
-let index = 0;
-
-/* YES CLICK */
+/* ================= YES CLICK ================= */
 yesBtn.addEventListener("click", () => {
   questionBox.classList.add("hidden");
 
+  /* Start music gently */
   music.volume = 0;
   music.play();
   fadeMusicIn();
 
+  /* Start falling love */
   startLoveRain();
 
-  setTimeout(() => {
-    messageBox.classList.remove("hidden");
-    showMessage();
-  }, 800);
+  /* Show message */
+  setTimeout(showMessage, 700);
 });
 
-/* Music fade in */
+/* ================= MUSIC FADE IN ================= */
 function fadeMusicIn() {
-  let v = 0;
-  const i = setInterval(() => {
-    v += 0.02;
-    music.volume = v;
-    if (v >= 0.6) clearInterval(i);
+  let vol = 0;
+  const fade = setInterval(() => {
+    vol += 0.02;
+    music.volume = vol;
+    if (vol >= 0.6) clearInterval(fade);
   }, 200);
 }
 
-/* Show messages */
+/* ================= SHOW MESSAGE ================= */
 function showMessage() {
-  if (index >= messages.length) {
-    showPhotos();
-    return;
-  }
+  messageBox.classList.remove("hidden");
+  valText.innerHTML = message;
 
-  valText.textContent = messages[index];
   valText.classList.remove("fade-in");
   void valText.offsetWidth;
   valText.classList.add("fade-in");
 
-  index++;
-  setTimeout(showMessage, 5500);
+  /* Stay visible ~8 seconds */
+  setTimeout(showPhotos, 8000);
 }
 
-/* Photos stay until button */
+/* ================= SHOW PHOTOS ================= */
 function showPhotos() {
   messageBox.classList.add("hidden");
   photoBox.classList.remove("hidden");
 
-  const btn = document.createElement("button");
-  btn.textContent = "Be mine ❤️";
-  btn.className = "final-btn";
-  btn.onclick = showFinal;
-
-  photoBox.appendChild(btn);
+  /* Prevent duplicate button */
+  if (!document.getElementById("finalBtn")) {
+    const btn = document.createElement("button");
+    btn.id = "finalBtn";
+    btn.className = "final-btn";
+    btn.textContent = "Be mine ❤️";
+    btn.onclick = showFinal;
+    photoBox.appendChild(btn);
+  }
 }
 
-/* Final */
+/* ================= FINAL MOMENT ================= */
 function showFinal() {
   document.body.classList.add("final-moment");
   photoBox.classList.add("hidden");
   finalBox.classList.remove("hidden");
 }
 
-/* Falling hearts */
+/* ================= FALLING LOVE ================= */
 function startLoveRain() {
   setInterval(() => {
-    const h = document.createElement("div");
-    h.className = "fall-love";
-    h.innerHTML = Math.random() > 0.5 ? "❤️" : "🌹";
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.animationDuration = 8 + Math.random() * 6 + "s";
-    document.body.appendChild(h);
-    setTimeout(() => h.remove(), 14000);
+    const heart = document.createElement("div");
+    heart.className = "fall-love";
+    heart.innerHTML = Math.random() > 0.5 ? "❤️" : "🌹";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 8 + Math.random() * 6 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 14000);
   }, 900);
 }
