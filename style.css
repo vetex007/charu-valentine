@@ -672,3 +672,40 @@ body.valentine-page .fall-love {
   }
 }
 
+/* ================= VALENTINE FINAL MOMENT ================= */
+
+/* Dim background on final */
+body.valentine-page.final-moment {
+  background: radial-gradient(circle at center, #ff8fab, #b5173f);
+  transition: background 2s ease;
+}
+
+/* Final text spotlight */
+body.valentine-page .final-love {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 24px;
+  animation: finalPulse 3s ease-in-out infinite;
+}
+
+/* Soft glowing pulse */
+@keyframes finalPulse {
+  0%   { text-shadow: 0 0 10px rgba(255,255,255,0.4); }
+  50%  { text-shadow: 0 0 22px rgba(255,255,255,0.9); }
+  100% { text-shadow: 0 0 10px rgba(255,255,255,0.4); }
+}
+
+/* Stop interactions */
+body.valentine-page.final-moment button {
+  display: none;
+}
+
+/* Slow falling hearts in final */
+body.valentine-page.final-moment .fall-love {
+  animation-duration: 12s !important;
+  opacity: 0.5;
+}
